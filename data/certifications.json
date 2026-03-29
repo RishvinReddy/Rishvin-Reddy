@@ -1,34 +1,82 @@
 [
   {
-    "title": "UI / UX Design Professional",
-    "issuer": "Design Academy",
-    "date": "Aug 2023",
-    "image": "https://i.postimg.cc/3JvG9cnN/cert-uiux.png",
-    "description": "Comprehensive course covering user research, wireframing, prototyping and accessibility best practices.",
-    "tags": ["Figma", "Accessibility"]
+    "title": "Quantum Computing for Everyone – An Introduction",
+    "issuer": "Coursera",
+    "date": "2025",
+    "image": "https://i.postimg.cc/placeholder/quantum.png",
+    "description": "Introduction to quantum computing concepts including qubits, superposition, and real-world applications.",
+    "tags": ["Quantum Computing", "Qubits"]
   },
   {
-    "title": "IoT Systems & Embedded",
-    "issuer": "Embedded Labs",
-    "date": "Dec 2023",
-    "image": "https://i.postimg.cc/7L8m3gF2/cert-iot.png",
-    "description": "Hands-on projects with Arduino/ESP, sensors, MQTT, and edge telemetry pipelines.",
-    "tags": ["Arduino", "MQTT"]
+    "title": "The Arduino Platform and C Programming",
+    "issuer": "University of California, Irvine (Coursera)",
+    "date": "2025",
+    "image": "https://i.postimg.cc/placeholder/arduino-c.png",
+    "description": "Hands-on embedded systems programming using Arduino and C, including hardware interfacing and microcontroller basics.",
+    "tags": ["Arduino", "Embedded C"]
   },
   {
-    "title": "Blockchain Fundamentals",
-    "issuer": "Decentralized Academy",
-    "date": "May 2024",
-    "image": "https://i.postimg.cc/h4H9K9Xr/cert-blockchain.png",
-    "description": "Smart contracts, token standards, on-chain design patterns and security considerations.",
-    "tags": ["Solidity", "Web3"]
+    "title": "Write Professional Emails in English",
+    "issuer": "Georgia Institute of Technology (Coursera)",
+    "date": "2025",
+    "image": "https://i.postimg.cc/placeholder/email.png",
+    "description": "Professional communication skills focusing on writing clear, concise, and effective emails in a business environment.",
+    "tags": ["Communication", "Professional Writing"]
   },
   {
-    "title": "Cyber Security Essentials",
-    "issuer": "Security Institute",
-    "date": "Feb 2024",
-    "image": "https://i.postimg.cc/N0c7w3c1/cert-cyber.png",
-    "description": "Threat modelling, secure authentication, hashing & encryption, and secure design patterns.",
-    "tags": ["AES / SHA", "TOTP"]
+    "title": "Object-Oriented Design",
+    "issuer": "University of Alberta (Coursera)",
+    "date": "2025",
+    "image": "https://i.postimg.cc/placeholder/ood.png",
+    "description": "Core principles of object-oriented design including abstraction, encapsulation, inheritance, and design patterns.",
+    "tags": ["OOP", "Design Patterns"]
+  },
+  {
+    "title": "Java Programming: Solving Problems with Software",
+    "issuer": "Duke University (Coursera)",
+    "date": "2025",
+    "image": "https://i.postimg.cc/placeholder/java.png",
+    "description": "Problem-solving using Java programming with a focus on algorithms, logic building, and real-world applications.",
+    "tags": ["Java", "Algorithms"]
+  },
+  {
+    "title": "Nanotechnology and Nanosensors, Part 1",
+    "issuer": "Technion – Israel Institute of Technology (Coursera)",
+    "date": "2025",
+    "image": "https://i.postimg.cc/placeholder/nano.png",
+    "description": "Fundamentals of nanotechnology and nanosensors with applications in engineering and advanced materials.",
+    "tags": ["Nanotechnology", "Sensors"]
+  },
+  {
+    "title": "Introduction to Cyber Attacks",
+    "issuer": "NYU (Coursera)",
+    "date": "2025",
+    "image": "https://i.postimg.cc/placeholder/cyber.png",
+    "description": "Overview of cybersecurity threats, attack vectors, vulnerabilities, and basic defense mechanisms.",
+    "tags": ["Cybersecurity", "Threat Analysis"]
+  },
+  {
+    "title": "Interfacing with the Arduino",
+    "issuer": "University of California, Irvine (Coursera)",
+    "date": "2025",
+    "image": "https://i.postimg.cc/placeholder/arduino-interfacing.png",
+    "description": "Practical experience interfacing sensors and actuators with Arduino for real-world embedded applications.",
+    "tags": ["Arduino", "IoT"]
+  },
+  {
+    "title": "Data Structures Using Python – An Introduction",
+    "issuer": "Coursera",
+    "date": "2025",
+    "image": "https://i.postimg.cc/placeholder/dsa.png",
+    "description": "Introduction to fundamental data structures in Python including lists, stacks, queues, and dictionaries.",
+    "tags": ["Python", "Data Structures"]
+  },
+  {
+    "title": "Programming for Everybody (Getting Started with Python)",
+    "issuer": "University of Michigan (Coursera)",
+    "date": "2025",
+    "image": "https://i.postimg.cc/placeholder/python.png",
+    "description": "Beginner-friendly course covering Python basics, problem-solving, and programming fundamentals.",
+    "tags": ["Python", "Programming Basics"]
   }
 ]
