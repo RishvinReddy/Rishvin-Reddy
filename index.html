@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <link rel="icon" href="icon.jpeg" type="image/jpeg">
+  <link rel="icon" href="icon.png" type="image/png">
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -830,6 +830,11 @@
                   class="animate-gradient text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-primary to-indigo-600">Rishvin
                   Reddy</span>
               </h1>
+              <div class="mb-5 inline-block">
+                <a href="#patent-section" class="bg-yellow-100 text-yellow-800 px-3 py-1.5 rounded-full text-sm font-semibold shadow-sm border border-yellow-200 flex items-center gap-1.5 w-fit hover:bg-yellow-200 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer">
+                  🏅 Patent Holder
+                </a>
+              </div>
 
               <p
                 class="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-10 delay-100 font-medium">
@@ -1300,6 +1305,80 @@
     </div>
   </section>
 
+  <!-- ===========================
+     PATENT HIGHLIGHT SECTION
+     =========================== -->
+  <section id="patent-section" class="max-w-7xl mx-auto px-6 lg:px-8 mt-10 mb-10 relative z-20 scroll-mt-32">
+
+    <h2 class="text-3xl font-extrabold text-slate-900 mb-8 font-display flex items-center gap-3">
+      <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+      </svg>
+      Patent & Innovation
+    </h2>
+
+    <div class="bg-white/80 backdrop-blur-xl border border-slate-200 rounded-3xl p-8 premium-layered-shadow transition-all duration-300 hover:-translate-y-1 relative group overflow-hidden">
+      <!-- Decorative background glow -->
+      <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-yellow-400/10 rounded-full blur-3xl group-hover:bg-yellow-400/20 transition-all duration-500 pointer-events-none"></div>
+
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-start justify-between mb-8 gap-4 relative z-10">
+        <div>
+          <h3 class="text-2xl font-bold text-slate-800 mb-2 group-hover:text-primary transition-colors">
+            IoT Connectivity Device
+          </h3>
+          <p class="text-slate-500 font-medium">
+            Government of India – Registered Design Patent
+          </p>
+        </div>
+
+        <span class="text-sm font-bold bg-emerald-50 text-emerald-600 px-4 py-1.5 rounded-full border border-emerald-200 inline-flex items-center gap-1.5 self-start">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          Registered
+        </span>
+      </div>
+
+      <!-- Meta Info -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 text-sm mb-8 bg-slate-50/50 p-6 rounded-2xl border border-slate-100 relative z-10">
+
+        <div class="flex flex-col gap-1">
+          <div class="text-slate-400 uppercase tracking-wider font-semibold text-xs">Design No.</div>
+          <div class="font-bold text-slate-800 text-base">470097-001</div>
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <div class="text-slate-400 uppercase tracking-wider font-semibold text-xs">Category</div>
+          <div class="font-bold text-slate-800 text-base">IoT System Design</div>
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <div class="text-slate-400 uppercase tracking-wider font-semibold text-xs">Registered</div>
+          <div class="font-bold text-slate-800 text-base">Aug 2025</div>
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <div class="text-slate-400 uppercase tracking-wider font-semibold text-xs">Role</div>
+          <div class="font-bold text-slate-800 text-base text-primary">Co-Inventor</div>
+        </div>
+
+      </div>
+
+      <!-- Actions -->
+      <div class="flex flex-wrap gap-4 relative z-10 p-2">
+        <button onclick="openPatent()" class="inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-white bg-primary rounded-xl shadow-lg shadow-primary/30 hover:-translate-y-0.5 hover:shadow-primary/40 transition-all duration-300 gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+          View Patent
+        </button>
+
+        <a href="assets/certificates/CERTIFICATE.pdf" target="_blank"
+          class="inline-flex items-center justify-center px-6 py-3 text-sm font-bold text-slate-700 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 hover:border-slate-300 transition-all duration-300 gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+          Download PDF
+        </a>
+      </div>
+
+    </div>
+  </section>
 
   <!-- Featured Projects (Premium UI Upgrade) -->
   <section class="py-24 sm:py-32 bg-slate-50 relative overflow-hidden" id="projects">
@@ -1405,6 +1484,10 @@
             <h3 id="languageCount" class="text-4xl font-bold text-amber-500 mb-2">0</h3>
             <p class="text-sm text-slate-600 font-medium">Languages Used</p>
           </div>
+          <div class="card-premium p-6 text-center">
+            <h3 class="text-4xl font-bold text-yellow-500 mb-2">1</h3>
+            <p class="text-sm text-slate-600 font-medium">Patents</p>
+          </div>
         </div>
       </div>
 
@@ -1441,7 +1524,7 @@
   </section>
 
   <!-- GitHub Activity Timeline Section -->
-  <section class="py-24 bg-white relative overflow-hidden border-t border-slate-200" id="github-timeline">
+  <section class="py-24 bg-slate-50 relative overflow-hidden border-t border-slate-200" id="github-timeline">
     <!-- Ambient Background -->
     <div class="absolute inset-0 pointer-events-none">
       <div
@@ -1534,27 +1617,80 @@
 
           <!-- Graph Container -->
           <div id="knowledgeGraphNetwork" class="w-full h-[600px] cursor-grab active:cursor-grabbing"></div>
+          
+          <!-- Slide-in Details Panel (Hidden by Default) -->
+          <div id="graphDetailsPanel" class="absolute top-0 right-0 h-full w-80 bg-white/95 backdrop-blur-xl border-l border-slate-200 shadow-[-15px_0_30px_rgba(0,0,0,0.05)] transform translate-x-full transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] z-40 p-6 flex flex-col overflow-y-auto pointer-events-auto">
+             <div class="flex justify-between items-start mb-6">
+                <h3 class="font-black text-slate-900 text-lg uppercase tracking-tight font-display">Node Details</h3>
+                <button onclick="document.getElementById('graphDetailsPanel').classList.add('translate-x-full')" class="text-slate-400 hover:text-slate-700 transition-colors p-1">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+             </div>
+             <div id="graphDetailsContent" class="flex-grow flex flex-col gap-4">
+               <!-- Content injected via JS -->
+             </div>
+          </div>
+          
+          <!-- Live Engine Tag -->
+          <div class="absolute top-6 right-6 z-30 flex items-center gap-2 bg-indigo-50/80 backdrop-blur-md border border-indigo-200 px-3 py-1.5 rounded-full shadow-sm">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+            </span>
+            <span class="text-[10px] font-bold text-indigo-700 uppercase tracking-wider">Live Ecosystem</span>
+          </div>
+          
+          <!-- Custom Tooltip -->
+          <div id="graphTooltip" class="absolute hidden bg-slate-900/95 backdrop-blur-md text-slate-100 px-3 py-2 rounded-lg text-xs font-medium shadow-xl border border-slate-700 pointer-events-none z-50 transition-opacity duration-200 whitespace-nowrap"></div>
 
-          <!-- Context floating panel -->
-          <div
-            class="absolute top-6 left-6 bg-white/90 backdrop-blur-md border border-slate-200 p-4 rounded-xl shadow-lg pointer-events-none">
-            <h4 class="font-bold text-slate-900 mb-2 text-sm flex items-center gap-2">
-              <i class="fas fa-project-diagram text-indigo-500"></i> Nodes
-            </h4>
-            <ul class="text-xs space-y-2 text-slate-600">
-              <li class="flex items-center gap-2">
-                <div class="w-3 h-3 rounded-full bg-slate-800"></div> Core Domain
+          <!-- Reset View button -->
+          <button id="graphResetBtn"
+            onclick="if(window.knowledgeGraph){window.knowledgeGraph.fit({animation:{duration:600,easingFunction:'easeInOutQuad'}});}"
+            title="Reset View"
+            class="absolute bottom-5 right-5 z-30 flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-bold
+                   bg-white/90 backdrop-blur-md border border-slate-200 shadow-lg text-slate-700
+                   hover:bg-indigo-50 hover:border-indigo-300 hover:text-indigo-600 hover:shadow-indigo-100
+                   active:scale-95 transition-all duration-200 group">
+            <!-- Crosshair / fit icon -->
+            <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-90 duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>
+            </svg>
+            Reset View
+          </button>
+
+          <!-- Zoom controls -->
+          <div class="absolute bottom-5 left-1/2 -translate-x-1/2 z-30 flex items-center gap-1 bg-white/90 backdrop-blur-md border border-slate-200 rounded-xl shadow-lg overflow-hidden">
+            <button onclick="if(window.knowledgeGraph){var s=window.knowledgeGraph.getScale();window.knowledgeGraph.moveTo({scale:Math.min(s*1.25,3),animation:{duration:300}});}"
+              class="px-3 py-2 text-slate-600 hover:bg-indigo-50 hover:text-indigo-600 font-bold text-sm transition-colors" title="Zoom In">＋</button>
+            <div class="w-px h-5 bg-slate-200"></div>
+            <button onclick="if(window.knowledgeGraph){var s=window.knowledgeGraph.getScale();window.knowledgeGraph.moveTo({scale:Math.max(s*0.8,0.1),animation:{duration:300}});}"
+              class="px-3 py-2 text-slate-600 hover:bg-indigo-50 hover:text-indigo-600 font-bold text-sm transition-colors" title="Zoom Out">－</button>
+          </div>
+
+          <!-- Interactive Legend Panel -->
+          <div class="absolute top-6 left-6 bg-white/80 backdrop-blur-xl border border-white/60 p-5 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] pointer-events-none z-30">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <h4 class="font-bold text-slate-900 text-[10px] uppercase tracking-widest">Topology Key</h4>
+            </div>
+            <ul class="text-[11px] space-y-3 font-semibold text-slate-600">
+              <li class="flex items-center gap-3">
+                <div class="flex items-center justify-center w-6 h-6 rounded-lg border border-slate-200 bg-slate-50 shadow-sm"><div class="w-3 h-3 rounded bg-slate-300"></div></div> 
+                <span class="tracking-wide text-slate-700">Core Domain Hub</span>
               </li>
-              <li class="flex items-center gap-2">
-                <div class="w-3 h-3 rounded-full bg-indigo-500"></div> Top Repository
+              <li class="flex items-center gap-3">
+                <div class="flex items-center justify-center w-6 h-6 rounded-lg border border-indigo-200 bg-indigo-50/50 shadow-sm"><div class="w-3 h-3 bg-indigo-500 rotate-45 transform"></div></div> 
+                <span class="tracking-wide text-indigo-700">High-Impact Node</span>
               </li>
-              <li class="flex items-center gap-2">
-                <div class="w-3 h-3 rounded-full bg-emerald-500"></div> Standard Repository
+              <li class="flex items-center gap-3">
+                <div class="flex items-center justify-center w-6 h-6 rounded-lg border border-emerald-200 bg-emerald-50/50 shadow-sm"><div class="w-3 h-3 rounded-full bg-emerald-500"></div></div> 
+                <span class="tracking-wide text-emerald-700">Standard Module</span>
               </li>
             </ul>
-            <p class="text-[10px] text-slate-400 mt-3 pt-3 border-t border-slate-100">
-              Drag nodes to explore the network. Scroll to zoom.
-            </p>
           </div>
 
         </div>
@@ -3424,81 +3560,82 @@
           let timelineRepos = allRepos.filter(repo => !repo.fork).sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
           let currentYear = 0;
 
+          // Light palette matches Featured Projects
+          const colorMapTl = {
+            orange: { accent: '#f97316', badge: 'bg-orange-100 text-orange-700' },
+            purple: { accent: '#9333ea', badge: 'bg-purple-100 text-purple-700' },
+            blue:   { accent: '#3b82f6', badge: 'bg-blue-100 text-blue-700'   },
+            emerald:{ accent: '#10b981', badge: 'bg-emerald-100 text-emerald-700' },
+            rose:   { accent: '#f43f5e', badge: 'bg-rose-100 text-rose-700'   },
+            slate:  { accent: '#64748b', badge: 'bg-slate-100 text-slate-700'  },
+          };
+
           timelineRepos.forEach((repo, index) => {
-            const year = new Date(repo.created_at).getFullYear();
-            const type = detectProjectType(repo);
+            const year  = new Date(repo.created_at).getFullYear();
+            const type  = detectProjectType(repo);
             const score = complexityScore(repo);
             const highlight = isBestRepo(repo, score);
+            const palette = colorMapTl[type.color] || colorMapTl.slate;
+            const coverUrl = `https://opengraph.githubassets.com/1/RishvinReddy/${repo.name}`;
+            const isLeft = index % 2 === 0;
 
-            // Render Year Marker if new year
             if (year !== currentYear) {
-              const yearMarker = document.createElement("div");
-              yearMarker.className = "relative flex justify-center md:justify-center mb-12 scroll-reveal";
-              yearMarker.style.animationDelay = "100ms";
+              const yearMarker = document.createElement('div');
+              yearMarker.className = 'relative flex justify-center mb-10 scroll-reveal';
+              yearMarker.style.animationDelay = '50ms';
               yearMarker.innerHTML = `
-                <div class="px-6 py-2 rounded-full bg-slate-900 border border-slate-700 text-white font-bold text-sm shadow-md z-10">
+                <div class="px-6 py-2 rounded-full bg-slate-50 border border-slate-200 text-slate-700 font-extrabold text-sm shadow-sm z-10 relative premium-layered-shadow">
                   ${year}
-                </div>
-              `;
+                </div>`;
               timeline.appendChild(yearMarker);
               currentYear = year;
             }
 
-            const isLeft = index % 2 === 0;
-            const itemContainer = document.createElement("div");
-            itemContainer.className = `relative flex flex-col md:flex-row items-center justify-between w-full timeline-item scroll-reveal`;
-            itemContainer.style.animationDelay = `${(index % 4) * 100}ms`;
-
-            itemContainer.innerHTML = `
-              <div class="order-1 md:w-5/12 ${isLeft ? 'md:pr-10 md:text-right flex-col md:items-end' : 'md:hidden'} flex my-4 md:my-0">
-                ${isLeft ? `
-                <div class="card-premium p-6 relative group w-full text-left">
-                  ${highlight ? `
-                    <div class="absolute -top-3 -right-3 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500 text-white shadow-md z-10 flex items-center gap-1">
-                      <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg> Featured
-                    </div>
-                  ` : ""}
-                  <div class="flex items-center gap-2 ${isLeft ? 'md:justify-end' : ''} mb-2">
-                    <span class="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-md bg-${type.color}-100 text-${type.color}-700">${type.name}</span>
+            const cardHTML = `
+              <div class="card-premium group cursor-pointer flex flex-col overflow-hidden w-full transition-all duration-500 hover:-translate-y-1 bg-white border border-slate-200"
+                   onclick="window.open('${repo.html_url}','_blank')">
+                <div class="relative h-32 overflow-hidden bg-slate-50">
+                  <div class="absolute inset-0 flex items-center justify-center opacity-80" style="background:linear-gradient(135deg,${palette.accent}15,${palette.accent}30)">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="${palette.accent}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="group-hover:scale-110 transition-transform duration-500"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                   </div>
-                  <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors"><a href="project.html?repo=${repo.name}" target="_blank">${repo.name}</a></h3>
-                  <p class="text-sm text-slate-600 mb-4 line-clamp-2">${repo.description || "No description provided."}</p>
-                  <div class="flex items-center gap-3 text-xs text-slate-500 ${isLeft ? 'md:justify-end' : ''}">
-                    <span class="flex items-center gap-1">⭐ ${repo.stargazers_count}</span>
-                    <span class="flex items-center gap-1">🍴 ${repo.forks_count}</span>
-                    <span class="font-mono bg-slate-100 px-2 py-0.5 rounded">${repo.language || "N/A"}</span>
+                  <div class="absolute top-3 left-3 z-10">
+                    <span class="flex items-center gap-1.5 px-2.5 py-1 ${palette.badge} rounded-full text-[10px] uppercase tracking-widest font-bold border border-white/50 shadow-sm backdrop-blur-sm">
+                      ${type.name}
+                    </span>
+                  </div>
+                  <div class="absolute top-3 right-3 z-10">
+                    <span class="px-2 py-1 rounded-md text-[10px] font-mono font-bold bg-white/80 text-slate-700 border border-slate-200 shadow-sm backdrop-blur-sm">${repo.language || 'Code'}</span>
+                  </div>
+                  ${highlight ? `<div class="absolute bottom-3 right-3 z-10 px-2.5 py-1 rounded-full text-[10px] font-bold bg-gradient-to-r from-amber-500 to-orange-500 text-white flex items-center gap-1.5 shadow-md border border-amber-400/50"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>Featured</div>` : ''}
+                </div>
+                <div class="flex flex-col flex-1 p-4">
+                  <h3 class="text-sm font-bold text-slate-900 mb-1.5 group-hover:text-primary transition-colors line-clamp-1 font-display">${repo.name.replace(/-/g, ' ').replace(/_/g, ' ')}</h3>
+                  <p class="text-xs text-slate-500 leading-relaxed line-clamp-2 mb-3">${repo.description || 'No description provided.'}</p>
+                  
+                  <div class="flex items-center gap-3 text-xs text-slate-500 mb-3 font-medium border-t border-slate-100 pt-3">
+                    <span class="flex items-center gap-1"><svg class="w-3.5 h-3.5 text-amber-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>${repo.stargazers_count}</span>
+                    <span class="flex items-center gap-1"><svg class="w-3.5 h-3.5 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12M8 12h12M8 17h12"></path></svg>${repo.forks_count}</span>
+                    <span class="flex items-center gap-1 font-bold text-primary ml-auto"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>${score}</span>
                   </div>
                 </div>
-                ` : ''}
-              </div>
+              </div>`;
 
-              <div class="z-20 flex items-center order-1 bg-white shadow-xl w-8 h-8 rounded-full border-4 border-slate-200 absolute left-8 md:left-1/2 -translate-x-1/2 ${highlight ? 'ring-4 ring-primary/20 bg-primary/20 ' : ''}">
-                <div class="mx-auto w-2 h-2 rounded-full ${highlight ? 'bg-primary' : 'bg-slate-400 '}"></div>
+            const row = document.createElement('div');
+            row.className = 'relative flex items-center justify-between w-full gap-4 mb-14 scroll-reveal';
+            row.style.animationDelay = `${(index % 6) * 80}ms`;
+            row.innerHTML = `
+              <div class="w-5/12 ${isLeft ? '' : 'invisible pointer-events-none'}">
+                ${isLeft ? cardHTML : ''}
               </div>
-
-              <div class="order-1 pl-16 md:pl-0 md:w-5/12 ${!isLeft ? 'md:pl-10 text-left items-start' : 'md:hidden'} flex flex-col md:my-0 my-4 w-full">
-                ${!isLeft ? `
-                <div class="card-premium p-6 relative group w-full text-left">
-                  ${highlight ? `
-                    <div class="absolute -top-3 -right-3 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-500 text-white shadow-md z-10 flex items-center gap-1">
-                      <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg> Featured
-                    </div>
-                  ` : ""}
-                  <div class="flex items-center gap-2 mb-2">
-                    <span class="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-md bg-${type.color}-100 text-${type.color}-700">${type.name}</span>
-                  </div>
-                  <h3 class="text-xl font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors"><a href="project.html?repo=${repo.name}" target="_blank">${repo.name}</a></h3>
-                  <p class="text-sm text-slate-600 mb-4 line-clamp-2">${repo.description || "No description provided."}</p>
-                  <div class="flex items-center gap-3 text-xs text-slate-500">
-                    <span class="flex items-center gap-1">⭐ ${repo.stargazers_count}</span>
-                    <span class="flex items-center gap-1">🍴 ${repo.forks_count}</span>
-                    <span class="font-mono bg-slate-100 px-2 py-0.5 rounded">${repo.language || "N/A"}</span>
-                  </div>
-                </div>
-                ` : ''}
+              <div class="flex-shrink-0 z-20 flex items-center justify-center w-10 h-10 rounded-full font-bold text-sm text-white shadow-xl border-4 border-white ${highlight ? 'ring-4 ring-primary/30' : ''}" style="background:${palette.accent}">
+                ${index + 1}
+              </div>
+              <div class="w-5/12 ${!isLeft ? '' : 'invisible pointer-events-none'}">
+                ${!isLeft ? cardHTML : ''}
               </div>
             `;
-            timeline.appendChild(itemContainer);
+
+            timeline.appendChild(row);
           });
         }
 
@@ -3508,7 +3645,7 @@
           // Identify Categories
           const categoriesMap = new Map();
 
-          // Seed the base root domain nodes if they don't emerge naturally. Matching detectProjectType returns exactly.
+          // Seed the base root domain nodes
           ['AI & ML', 'IoT', 'Security', 'Web Dev', 'Database', 'Software'].forEach((name, idx) => {
             categoriesMap.set(name, { id: `cat_${idx}`, label: name, isDomain: true, connections: 0 });
           });
@@ -3518,14 +3655,12 @@
 
           let nodeIdCounter = 100;
 
-          // Process repositories
           const graphRepos = allRepos.filter(repo => !repo.fork);
           graphRepos.forEach(repo => {
-            const typeInfo = detectProjectType(repo);
-            const score = complexityScore(repo);
+            const typeInfo  = detectProjectType(repo);
+            const score     = complexityScore(repo);
             const isImportant = isBestRepo(repo, score);
-
-            const repoNodeId = `node_${nodeIdCounter++}`;
+            const repoNodeId  = `node_${nodeIdCounter++}`;
 
             let catObj = categoriesMap.get(typeInfo.name);
             if (!catObj) {
@@ -3534,47 +3669,65 @@
             }
             catObj.connections++;
 
-            // Highlight color mappings
-            const bgClass = document.documentElement.classList.contains('dark') ? '#0f172a' : '#ffffff';
-            const borderCol = isImportant ? '#6366f1' : '#10b981';
-
             nodesArray.push({
-              id: repoNodeId,
-              label: repo.name,
+              id:    repoNodeId,
+              label: repo.name.replace(/-/g,' '),
+              title: `<div class="p-1"><span class="font-bold text-slate-800">${repo.name.replace(/-/g,' ')}</span><br><span class="text-indigo-600 text-[10px] font-mono">${repo.language || 'Code'}</span></div>`,
               shape: isImportant ? 'diamond' : 'dot',
-              size: isImportant ? 25 : 15,
-              font: { size: isImportant ? 14 : 12, color: document.documentElement.classList.contains('dark') ? '#f8fafc' : '#0f172a' },
-              color: {
-                background: bgClass,
-                border: borderCol,
-                highlight: {
-                  background: '#e0e7ff',
-                  border: '#4f46e5'
-                }
+              size:  isImportant ? 22 : 14,
+              font: {
+                size:  isImportant ? 14 : 11,
+                color: '#1e293b', 
+                face:  'Inter, sans-serif',
+                vadjust: isImportant ? -5 : -3,
+                bold: isImportant
               },
-              borderWidth: isImportant ? 3 : 2
+              color: {
+                background: '#ffffff',
+                border:     isImportant ? '#6366f1' : '#10b981',
+                highlight:  { background: '#e0e7ff', border: '#4f46e5' },
+                hover:      { background: '#f8fafc', border: '#818cf8' }
+              },
+              shadow: { enabled: true, color: 'rgba(99, 102, 241, 0.25)', size: 15, x: 0, y: 6 },
+              borderWidth: isImportant ? 4 : 2,
+              borderWidthSelected: isImportant ? 6 : 4,
+              // Custom metadata for the click events
+              isDomain: false,
+              repoData: repo
             });
 
             edgesArray.push({
-              from: catObj.id,
-              to: repoNodeId,
-              color: { color: document.documentElement.classList.contains('dark') ? 'rgba(148, 163, 184, 0.2)' : 'rgba(148, 163, 184, 0.3)' },
-              width: isImportant ? 2 : 1,
-              smooth: { type: 'continuous' }
+              from:   catObj.id,
+              to:     repoNodeId,
+              color:  { color: 'rgba(148, 163, 184, 0.2)', hover: '#818cf8', highlight: '#6366f1' },
+              width:  isImportant ? 3 : 1.5,
+              smooth: { type: 'continuous', roundness: 0.5 },
+              hoverWidth: 2
             });
           });
 
-          // Push active core domains into nodes
+          // Push domain hub nodes
           categoriesMap.forEach((catObj) => {
             if (catObj.connections > 0) {
               nodesArray.push({
-                id: catObj.id,
-                label: catObj.label,
-                font: { size: 16, color: document.documentElement.classList.contains('dark') ? '#cbd5e1' : '#475569', bold: true },
-                size: 40,
-                color: { background: document.documentElement.classList.contains('dark') ? '#1e293b' : '#f1f5f9', border: '#94a3b8' },
-                borderWidth: 2,
-                shape: 'dot'
+                id:    catObj.id,
+                label: catObj.label.toUpperCase(),
+                title: `<div class="p-1"><span class="font-bold text-slate-800">${catObj.label} Domain</span><br><span class="text-slate-500 text-[10px]">${catObj.connections} Repositories</span></div>`,
+                shape: 'dot',
+                size:  38,
+                font: { size: 15, color: '#334155', face: 'Inter, sans-serif', bold: true, vadjust: -8 },
+                color: {
+                  background: '#f8fafc',
+                  border:     '#cbd5e1',
+                  highlight:  { background: '#f1f5f9', border: '#94a3b8' },
+                  hover:      { background: '#f1f5f9', border: '#94a3b8' }
+                },
+                shadow: { enabled: true, color: 'rgba(15, 23, 42, 0.15)', size: 25, x: 0, y: 10 },
+                borderWidth: 3,
+                borderWidthSelected: 5,
+                // Custom metadata for click events
+                isDomain: true,
+                domainData: catObj
               });
             }
           });
@@ -3585,33 +3738,126 @@
           };
 
           const graphOptions = {
-            nodes: {
-              shadow: {
-                enabled: true,
-                color: 'rgba(0,0,0,0.1)',
-                size: 10,
-                x: 0,
-                y: 5
-              }
-            },
+            nodes: { chosen: true },
+            edges: { chosen: true },
             physics: {
               solver: 'forceAtlas2Based',
               forceAtlas2Based: {
-                gravitationalConstant: -50,
-                centralGravity: 0.01,
-                springLength: 100,
-                springConstant: 0.08
+                gravitationalConstant: -80,
+                centralGravity: 0.005,
+                springLength: 120,
+                springConstant: 0.07,
+                avoidOverlap: 0.6
               },
-              stabilization: { iterations: 150 }
+              stabilization: { iterations: 200, updateInterval: 25 }
             },
             interaction: {
               hover: true,
               zoomView: true,
-              dragView: true
-            }
+              dragView: true,
+              tooltipDelay: 100,
+              hideEdgesOnDrag: true
+            },
+            background: { color: 'transparent' }
           };
 
-          new vis.Network(graphContainer, graphData, graphOptions);
+          // Store globally
+          window.knowledgeGraph = new vis.Network(graphContainer, graphData, graphOptions);
+
+          // Custom tooltip
+          const tooltip = document.getElementById('graphTooltip');
+          window.knowledgeGraph.on('hoverNode', function(params) {
+            const node = graphData.nodes.get(params.node);
+            if (tooltip && node && node.title) {
+              const canvasPos = params.event.center;
+              tooltip.style.display = 'block';
+              tooltip.style.left = (canvasPos.x + 15) + 'px';
+              tooltip.style.top  = (canvasPos.y - 15) + 'px';
+              tooltip.innerHTML = node.title;
+            }
+          });
+          window.knowledgeGraph.on('blurNode', () => { if (tooltip) tooltip.style.display = 'none'; });
+
+          // Feature: Interactive Node Details & Highlighting
+          const detailsPanel = document.getElementById('graphDetailsPanel');
+          const detailsContent = document.getElementById('graphDetailsContent');
+
+          window.knowledgeGraph.on('selectNode', function(params) {
+            if (params.nodes.length > 0) {
+              const nodeId = params.nodes[0];
+              const node = graphData.nodes.get(nodeId);
+              
+              if (detailsPanel && detailsContent) {
+                // Remove hidden class to slide it in
+                detailsPanel.classList.remove('translate-x-full');
+                
+                // Construct HTML based on node type
+                if (node.isDomain) {
+                  detailsContent.innerHTML = `
+                    <div class="mb-2">
+                       <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-500 uppercase tracking-wider mb-2">Domain Hub</span>
+                       <h4 class="text-2xl font-black text-slate-800 font-display">${node.domainData.label}</h4>
+                    </div>
+                    <p class="text-sm text-slate-600 font-medium">This hub connects <span class="text-indigo-600 font-bold">${node.domainData.connections}</span> repositories sharing similar technologies and architectures.</p>
+                    <div class="mt-4 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                       <p class="text-xs text-slate-500 text-center">Double-click repositories to open them on GitHub.</p>
+                    </div>
+                  `;
+                } else if (node.repoData) {
+                  const r = node.repoData;
+                  const langColor = r.language === 'Python' ? 'text-blue-500' : (r.language === 'JavaScript' || r.language === 'TypeScript' ? 'text-yellow-500' : 'text-indigo-500');
+                  const desc = r.description ? r.description : 'No description provided for this repository.';
+                  
+                  detailsContent.innerHTML = `
+                    <div class="mb-2">
+                       <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-50 text-indigo-600 uppercase tracking-wider mb-2">Repository</span>
+                       <h4 class="text-xl font-bold text-slate-800 break-words">${r.name}</h4>
+                    </div>
+                    <p class="text-sm text-slate-600 mb-4">${desc}</p>
+                    <div class="grid grid-cols-2 gap-3 mb-6">
+                       <div class="p-3 bg-slate-50 rounded-lg border border-slate-100">
+                          <div class="text-[10px] text-slate-400 font-bold uppercase mb-1">Language</div>
+                          <div class="text-sm font-semibold ${langColor}">${r.language || 'N/A'}</div>
+                       </div>
+                       <div class="p-3 bg-slate-50 rounded-lg border border-slate-100 flex justify-around">
+                          <div class="text-center">
+                            <div class="text-[10px] text-slate-400 font-bold uppercase mb-1">Stars</div>
+                            <div class="text-sm font-semibold text-slate-700">⭐ ${r.stargazers_count}</div>
+                          </div>
+                          <div class="text-center">
+                            <div class="text-[10px] text-slate-400 font-bold uppercase mb-1">Forks</div>
+                            <div class="text-sm font-semibold text-slate-700">🍴 ${r.forks_count}</div>
+                          </div>
+                       </div>
+                    </div>
+                    <a href="${r.html_url}" target="_blank" class="mt-auto flex items-center justify-center gap-2 w-full py-3 bg-slate-900 text-white rounded-xl font-bold text-sm hover:bg-slate-800 hover:shadow-lg transition-all active:scale-95 group">
+                      View on GitHub
+                      <svg class="w-4 h-4 transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                    </a>
+                  `;
+                }
+              }
+            }
+          });
+
+          window.knowledgeGraph.on('deselectNode', function(params) {
+            if (detailsPanel) detailsPanel.classList.add('translate-x-full');
+          });
+
+          // Feature: Double Click
+          window.knowledgeGraph.on('doubleClick', function(params) {
+            if (params.nodes.length > 0) {
+              const node = graphData.nodes.get(params.nodes[0]);
+              if (node && node.repoData && node.repoData.html_url) {
+                window.open(node.repoData.html_url, '_blank');
+              }
+            }
+          });
+
+          // Auto-fit after stabilisation
+          window.knowledgeGraph.once('stabilizationIterationsDone', () => {
+            window.knowledgeGraph.fit({ animation: { duration: 900, easingFunction: 'easeInOutQuad' } });
+          });
         }
 
         // Re-initialize ScrollTrigger for new elements
@@ -3811,6 +4057,88 @@
   <script src="js/background-network.js"></script>
 
   <script src="js/cursor-spotlight.js"></script>
+
+  <!-- 2. FULLSCREEN PATENT VIEWER (IMPRESSIVE) -->
+  <div id="patentModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden items-center justify-center z-[110] transition-opacity duration-300 opacity-0" aria-modal="true" role="dialog">
+    <div class="bg-white w-full max-w-5xl h-[90vh] rounded-2xl overflow-hidden relative shadow-2xl transform scale-95 transition-transform duration-300" id="patentModalInner">
+      
+      <div class="absolute top-0 left-0 right-0 h-14 bg-slate-100 border-b flex items-center justify-between px-4 z-20">
+        <div class="font-bold text-slate-800 text-sm flex items-center gap-2">
+          <svg class="w-4 h-4 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          </svg>
+          Design Patent: 470097-001
+        </div>
+        <button onclick="closePatent()" class="bg-white border border-slate-200 text-slate-600 px-3 py-1.5 rounded-lg shadow-sm hover:bg-slate-50 hover:text-slate-900 transition-colors text-sm font-semibold flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-slate-300">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          Close
+        </button>
+      </div>
+
+      <div class="w-full h-full pt-14 bg-slate-200/50">
+        <iframe 
+          id="patentIframe"
+          src=""
+          class="w-full h-full border-0">
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 3. JS CONTROLLER
+    const patentModal = document.getElementById("patentModal");
+    const patentModalInner = document.getElementById("patentModalInner");
+    const patentIframe = document.getElementById("patentIframe");
+
+    function openPatent() {
+      // Set src only when opening to save load time and prevent flashing
+      if (!patentIframe.src || patentIframe.src === window.location.href) {
+        patentIframe.src = "assets/certificates/CERTIFICATE.pdf";
+      }
+      
+      patentModal.classList.remove("hidden");
+      patentModal.classList.add("flex");
+      
+      // small delay to allow display to apply before opacity/transform for smooth animation
+      setTimeout(() => {
+        patentModal.classList.remove("opacity-0");
+        patentModal.classList.add("opacity-100");
+        patentModalInner.classList.remove("scale-95");
+        patentModalInner.classList.add("scale-100");
+      }, 10);
+      
+      document.documentElement.style.overflow = 'hidden'; // prevent scrolling
+    }
+
+    function closePatent() {
+      patentModal.classList.remove("opacity-100");
+      patentModal.classList.add("opacity-0");
+      patentModalInner.classList.remove("scale-100");
+      patentModalInner.classList.add("scale-95");
+      
+      setTimeout(() => {
+        patentModal.classList.add("hidden");
+        patentModal.classList.remove("flex");
+        document.documentElement.style.overflow = ''; // restore scrolling
+      }, 300);
+    }
+    
+    // close on clicking outside
+    patentModal.addEventListener("click", (e) => {
+      if (e.target === patentModal) {
+        closePatent();
+      }
+    });
+    // close on Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !patentModal.classList.contains("hidden")) {
+        closePatent();
+      }
+    });
+
+  </script>
+
 </body>
 
 </html>

@@ -217,6 +217,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // const prompt = \`Context: \${JSON.stringify(contextChunks)} \\n\\n Question: \${query}\`;
     // const response = await fetch('/api/chat', { method: 'POST', body: JSON.stringify({prompt}) });
     
+    if(q.includes("patent")){
+      return `Rishvin is a co-inventor of a Government of India registered design patent for an IoT Connectivity Device (Design No. 470097-001).`;
+    }
+    
     if (contextChunks.length > 0) {
       // Pull heavily from the injected vector context to prove RAG works
       const bestChunk = contextChunks[0];

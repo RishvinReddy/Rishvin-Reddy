@@ -383,5 +383,29 @@
       });
     });
 
+    /* --- LATEST GITHUB REPO IN FOOTER --- */
+    const currentlyBuildingLabels = document.querySelectorAll('p');
+    currentlyBuildingLabels.forEach(p => {
+      if (p.textContent.trim() === 'Currently Building') {
+        const container = p.parentElement;
+        if (container && container.children.length >= 3) {
+          const titleP = container.children[1];
+          const descP = container.children[2];
+          
+          fetch('https://api.github.com/users/RishvinReddy/repos?sort=updated&per_page=1')
+            .then(res => res.json())
+            .then(data => {
+              if (data && data.length > 0) {
+                const repo = data[0];
+                const safeDesc = repo.language ? repo.language : (repo.description ? (repo.description.length > 35 ? repo.description.substring(0, 35) + '...' : repo.description) : 'GitHub Repository');
+                titleP.innerHTML = `<a href="${repo.html_url}" target="_blank" class="hover:text-primary transition-colors flex items-center gap-2" title="View on GitHub"><span class="w-2 h-2 rounded-full bg-primary animate-pulse inline-block"></span>${repo.name}</a>`;
+                descP.textContent = safeDesc;
+              }
+            })
+            .catch(err => console.error('Failed to fetch latest github repo', err));
+        }
+      }
+    });
+
   });
 })();
