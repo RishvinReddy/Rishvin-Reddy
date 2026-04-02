@@ -1,92 +1,138 @@
 [
   {
+    "title": "Understanding and Optimizing Campus Building Energy Consumption",
+    "issuer": "Woxsen University",
+    "date": "2025",
+    "image": "data/Data for the certificates/campus-energy-workshop.png",
+    "description": "Participated in a hands-on workshop focused on analyzing and optimizing energy consumption in campus buildings using practical approaches.",
+    "tags": [
+      "Energy Optimization",
+      "Sustainability",
+      "Workshop"
+    ],
+    "pdf": "data/Data for the certificates/campus-energy-workshop.png"
+  },
+  {
     "title": "Programming for Everybody (Getting Started with Python)",
     "issuer": "Coursera / University of Michigan",
     "date": "2023",
-    "image": "https://img.icons8.com/color/512/python.png",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg",
     "description": "Foundational Python programming course covering variables, expressions, conditionals, functions, and loops.",
-    "tags": ["Python", "Coursera"],
+    "tags": [
+      "Python",
+      "Coursera"
+    ],
     "pdf": "data/Data for the certificates/Programming for Everybody (Getting Started with Python).pdf"
   },
   {
     "title": "Data Structures Using Python — An Introduction",
     "issuer": "Coursera",
     "date": "2023",
-    "image": "https://img.icons8.com/color/512/data-configuration.png",
+    "image": "https://cdn-icons-png.flaticon.com/512/2103/2103658.png",
     "description": "Core data structures including lists, stacks, queues, trees, and graphs implemented in Python.",
-    "tags": ["Python", "Data Structures"],
+    "tags": [
+      "Python",
+      "Data Structures"
+    ],
     "pdf": "data/Data for the certificates/Data Structures Using Python - An Introduction.pdf"
   },
   {
     "title": "Interfacing with the Arduino",
     "issuer": "Coursera / UC Irvine",
     "date": "2023",
-    "image": "https://img.icons8.com/color/512/arduino.png",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/87/Arduino_Logo.svg",
     "description": "Hands-on interfacing of sensors, actuators and modules with Arduino microcontrollers.",
-    "tags": ["Arduino", "IoT", "C"],
+    "tags": [
+      "Arduino",
+      "IoT",
+      "C"
+    ],
     "pdf": "data/Data for the certificates/Interfacing with the Arduino.pdf"
   },
   {
     "title": "The Arduino Platform and C Programming",
     "issuer": "Coursera / UC Irvine",
     "date": "2023",
-    "image": "https://img.icons8.com/color/512/c-programming.png",
+    "image": "https://cdn-icons-png.flaticon.com/512/6132/6132222.png",
     "description": "Introduction to the Arduino hardware platform and C-based firmware development.",
-    "tags": ["Arduino", "C Programming"],
+    "tags": [
+      "Arduino",
+      "C Programming"
+    ],
     "pdf": "data/Data for the certificates/The Arduino Platform and C Programming.pdf"
   },
   {
     "title": "Introduction to Cyber Attacks",
     "issuer": "Coursera / NYU",
     "date": "2024",
-    "image": "https://img.icons8.com/color/512/cyber-security.png",
+    "image": "https://cdn-icons-png.flaticon.com/512/3064/3064197.png",
     "description": "Threat modelling, common attack vectors, vulnerability analysis and foundational cybersecurity concepts.",
-    "tags": ["Cybersecurity", "Threat Modelling"],
+    "tags": [
+      "Cybersecurity",
+      "Threat Modelling"
+    ],
     "pdf": "data/Data for the certificates/Introduction to Cyber Attacks.pdf"
   },
   {
     "title": "Java Programming",
     "issuer": "Coursera",
     "date": "2023",
-    "image": "https://img.icons8.com/color/512/java-coffee-cup-logo.png",
+    "image": "https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg",
     "description": "Object-oriented Java programming covering classes, inheritance, interfaces, and collections.",
-    "tags": ["Java", "OOP"],
+    "tags": [
+      "Java",
+      "OOP"
+    ],
     "pdf": "data/Data for the certificates/Java Programming.pdf"
   },
   {
     "title": "Object-Oriented Design",
     "issuer": "Coursera / University of Alberta",
     "date": "2023",
-    "image": "https://img.icons8.com/color/512/design.png",
+    "image": "https://cdn-icons-png.flaticon.com/512/1055/1055687.png",
     "description": "Design principles including SOLID, UML diagrams, design patterns and software architecture.",
-    "tags": ["OOP", "Design Patterns", "UML"],
+    "tags": [
+      "OOP",
+      "Design Patterns",
+      "UML"
+    ],
     "pdf": "data/Data for the certificates/Object-Oriented Design.pdf"
   },
   {
     "title": "Quantum Computing For Everyone — An Introduction",
     "issuer": "Coursera",
     "date": "2024",
-    "image": "https://img.icons8.com/color/512/physics.png",
+    "image": "https://cdn-icons-png.flaticon.com/512/4221/4221419.png",
     "description": "Qubits, quantum gates, superposition, entanglement and the basics of quantum algorithms.",
-    "tags": ["Quantum Computing", "Qubits"],
+    "tags": [
+      "Quantum Computing",
+      "Qubits"
+    ],
     "pdf": "data/Data for the certificates/Quantum Computing For Everyone - An Introduction.pdf"
   },
   {
     "title": "Nanotechnology and Nanosensors, Part 1",
     "issuer": "Coursera / Technion",
     "date": "2024",
-    "image": "https://img.icons8.com/color/512/microscope.png",
+    "image": "https://cdn-icons-png.flaticon.com/512/4149/4149643.png",
     "description": "Fundamentals of nanotechnology, nanomaterial properties and nanosensor design principles.",
-    "tags": ["Nanotechnology", "IoT", "Sensors"],
+    "tags": [
+      "Nanotechnology",
+      "IoT",
+      "Sensors"
+    ],
     "pdf": "data/Data for the certificates/Nanotechnology and Nanosensors, Part1.pdf"
   },
   {
     "title": "Write Professional Emails in English",
     "issuer": "Coursera / Georgia Tech",
     "date": "2023",
-    "image": "https://img.icons8.com/color/512/new-post.png",
+    "image": "https://cdn-icons-png.flaticon.com/512/732/732200.png",
     "description": "Best practices for clear, professional business communication in written English.",
-    "tags": ["Communication", "Professional"],
+    "tags": [
+      "Communication",
+      "Professional"
+    ],
     "pdf": "data/Data for the certificates/Write Professional Emails in English.pdf"
   }
 ]

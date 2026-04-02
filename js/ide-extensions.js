@@ -8,17 +8,60 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Neural Network Particle Background
   if (typeof tsParticles !== 'undefined') {
     tsParticles.load("neural-bg", {
+      fpsLimit: 60,
       particles: {
-        number: { value: 60, density: { enable: true, value_area: 800 } },
-        color: { value: ["#3b82f6", "#22c55e", "#a855f7", "#f20d46"] },
-        links: { enable: true, distance: 150, color: "#808080", opacity: 0.2, width: 1 },
-        move: { enable: true, speed: 0.8, direction: "none", random: false, straight: false, outModes: "bounce" },
-        size: { value: { min: 1, max: 3 } },
-        opacity: { value: 0.4 }
+        number: { value: 80, density: { enable: true, value_area: 1000 } },
+        color: { 
+          value: ["#3b82f6", "#10b981", "#8b5cf6", "#f43f5e", "#0ea5e9"],
+          animation: { enable: true, speed: 10, sync: false }
+        },
+        links: { 
+          enable: true, 
+          distance: 160, 
+          color: "#94a3b8", 
+          opacity: 0.15, 
+          width: 1,
+          triangles: { enable: true, opacity: 0.02, color: "#3b82f6" }
+        },
+        move: { 
+          enable: true, 
+          speed: 1.5, 
+          direction: "none", 
+          random: true, 
+          straight: false, 
+          outModes: "out" 
+        },
+        size: { 
+          value: { min: 1, max: 4 },
+          animation: { enable: true, speed: 2, minimumValue: 1, sync: false }
+        },
+        opacity: { 
+          value: { min: 0.2, max: 0.5 },
+          animation: { enable: true, speed: 1, minimumValue: 0.1, sync: false }
+        },
+        // Premium layered depth mechanics
+        zIndex: {
+          value: { min: -100, max: 100 },
+          opacityRate: 0.3,  // deeper particles are slightly more transparent
+          sizeRate: 0.8,     // deeper particles are smaller
+          velocityRate: 0.5  // deeper particles move slower for parallax effect
+        }
       },
       interactivity: {
-        events: { onHover: { enable: true, mode: "grab" }, onClick: { enable: true, mode: "push" } },
-        modes: { grab: { distance: 160, links: { opacity: 0.6 } }, push: { particles_nb: 3 } }
+        events: { 
+          onHover: { 
+            enable: true, 
+            mode: ["grab", "bubble"],
+            parallax: { enable: true, force: 30, smooth: 12 }
+          }, 
+          onClick: { enable: true, mode: "repulse" },
+          resize: true
+        },
+        modes: { 
+          grab: { distance: 200, links: { opacity: 0.6, color: "#3b82f6" } }, 
+          bubble: { distance: 160, size: 6, duration: 0.8, opacity: 0.8, color: "#3b82f6" },
+          repulse: { distance: 250, duration: 0.8, speed: 3 }
+        }
       },
       retina_detect: true,
       background: { color: "transparent" }

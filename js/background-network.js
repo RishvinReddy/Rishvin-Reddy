@@ -27,7 +27,7 @@ const PALETTE = [
   "#ddd6fe", // violet-200
 ];
 
-const COUNT = isMobile ? 45 : isTablet ? 75 : 120;
+const COUNT = isMobile ? 50 : isTablet ? 90 : 160;
 
 tsParticles.load("network-background", {
   fullScreen: { enable: false },
@@ -80,40 +80,64 @@ tsParticles.load("network-background", {
       }
     },
 
-    // Mixed shapes: mostly circles, occasional ✦ star for texture
+    // Mixed shapes: mostly circles, bright stars, and premium polygons
     shape: {
-      type: ["circle", "circle", "circle", "star"],
+      type: ["circle", "circle", "star", "triangle", "polygon"],
       options: {
-        star: { sides: 4 }   // 4-pointed cross/diamond star, very subtle
+        star: { sides: 5 },
+        triangle: { sides: 3 },
+        polygon: { sides: 6 } // Hexagons for a cyber/tech look
+      }
+    },
+
+    // Ultra-premium glowing shadow effect for Web3/Sci-Fi aesthetics
+    shadow: {
+      enable: true,
+      color: "#60a5fa", // brighter blue glow
+      blur: 18,         // larger bloom
+      offset: { x: 0, y: 0 }
+    },
+    
+    // Twinkle effect gives an organic, magical starlight vibe
+    twinkle: {
+      particles: { 
+        enable: true, 
+        frequency: 0.05, 
+        opacity: 1 
+      },
+      lines: { 
+        enable: true, 
+        frequency: 0.01, 
+        opacity: 0.8 
       }
     },
 
     // Interactive wire mesh — connection lines
     links: {
       enable: true,
-      distance: isMobile ? 110 : 150,
+      distance: isMobile ? 120 : 160,
       color: {
-        value: ["#94a3b8", "#a5b4fc", "#fda4af"]  // mixed link colors
+        value: ["#818cf8", "#f472b6", "#38bdf8"]  // highly vivid mixed links
       },
-      opacity: 0.14,
-      width: 0.7,
+      opacity: 0.25,
+      width: 1.2,
       // Triangle fill for neural-mesh depth
       triangles: {
         enable: !isMobile,
-        color: "#a5b4fc",
-        opacity: 0.020          // barely visible — atmospheric only
+        color: "#c084fc",
+        opacity: 0.04          // Increased atmospheric triangle density
       }
     },
 
-    // Organic layered drift with micro attract
+    // Organic layered drift with micro attract and bounce
     move: {
       enable: true,
-      speed: isMobile ? 0.35 : 0.65,
+      speed: isMobile ? 0.4 : 0.8,
       direction: "none",
       random: true,
       straight: false,
       outModes: {
-        default: "out"
+        default: "bounce" // Bouncing keeps the core denser and more active
       },
       trail: {
         enable: false
@@ -123,6 +147,14 @@ tsParticles.load("network-background", {
         rotate: { x: 800, y: 1600 }
       },
       warp: false
+    },
+    
+    // True multi-layered depth for premium 3D network parallax
+    zIndex: {
+      value: { min: -100, max: 100 },
+      opacityRate: 0.35,  // Deeper layers fade slightly into the atmospheric background
+      sizeRate: 0.7,      // Deeper particles appear smaller
+      velocityRate: 0.4   // Deeper particles drift much slower
     }
   },
 
@@ -135,11 +167,11 @@ tsParticles.load("network-background", {
     events: {
       onHover: {
         enable: true,
-        mode: ["grab", "bubble"],
+        mode: ["grab", "bubble", "slow"],
         parallax: {
           enable: !isMobile,
-          force: 12,            // subtle parallax depth on mouse move
-          smooth: 14
+          force: 25,            // stronger parallax depth on mouse move
+          smooth: 10
         }
       },
       onClick: {
@@ -162,19 +194,25 @@ tsParticles.load("network-background", {
       // Hover bubble: nearby particles grow & brighten
       bubble: {
         distance: isMobile ? 100 : 160,
-        size: 8,
-        duration: 0.5,
-        opacity: 0.75,
+        size: 9,
+        duration: 0.4,
+        opacity: 0.9,
         color: "#f20d46"
+      },
+
+      // Slow down particles near the mouse for an organic, cinematic feel
+      slow: {
+        factor: 3,
+        radius: 150
       },
 
       // Click repulse: satisfying radial push-away
       repulse: {
-        distance: isMobile ? 140 : 220,
-        duration: 0.7,
-        speed: 2.5,
-        factor: 100,
-        maxSpeed: 50,
+        distance: isMobile ? 160 : 250,
+        duration: 0.8,
+        speed: 3,
+        factor: 120,
+        maxSpeed: 60,
         easing: "ease-out-quad"
       }
     }
