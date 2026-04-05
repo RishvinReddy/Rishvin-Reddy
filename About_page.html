@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-  <link rel="icon" href="icon.png" type="image/png">
+  <link rel="icon" href="icon.jpeg" type="image/jpeg">
 
   <link rel="stylesheet" href="animations.css">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rishvin Reddy About Page</title>
+  <title>Yogamruth Reddy About Page</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
@@ -63,11 +63,7 @@
 </head>
 
 <body class="bg-slate-50 selection:bg-primary/20 font-serif text-slate-800 relative overflow-x-hidden">
-  <!-- ── Global Ambient Lighting Orbs ── -->
-  <div class="ambient-orb-center" aria-hidden="true"></div>
-  <div class="ambient-orb-tl" aria-hidden="true"></div>
-
-  
+  <div id="network-background"></div>
   <div class="cursor-dot hidden md:block"></div>
   <div class="cursor-outline hidden md:block"></div>
 
@@ -88,276 +84,103 @@
 
   <div class="flex min-h-screen flex-col pt-12">
     <!-- Top Utility Bar (Premium Dark) -->
+    <!-- ============================================================
+     HEADER v2 — Ultra-Premium Canonical Template
+     New features over v1:
+       • Shimmer / glint animation on progress bar
+       • Typing "Available for work" ticker in utility bar
+       • Magnetic "Let's Talk" button effect
+       • Spotlight glow that follows mouse on nav pill
+       • Active nav pill animates in with scale
+       • Mega dropdown with description sub-text for each item
+       • Nav link hover underline slide-in micro-animation
+       • Animated availability pulse badge in utility bar
+       • Smooth "scroll-hide utility bar" (hides on scroll down, shows on up)
+       • Staggered mobile menu item entrance animations
+       • Notification badge on "More" button
+       • Profile avatar ring pulse on hover
+     ============================================================ -->
+
     <!-- ── Scroll Progress Bar (shimmer variant) ── -->
     <div id="scrollProgressBar"
       class="fixed top-0 left-0 z-[100] h-[3px] transition-all duration-100 ease-out overflow-hidden" style="width:0%">
-      <div class="h-full w-full relative"
-        style="background: linear-gradient(90deg, #f20d46, #fb7185, #818cf8, #f20d46); background-size: 200% 100%; animation: gradientShift 3s linear infinite;">
+      <div class="h-full bg-gradient-to-r from-primary via-rose-400 to-indigo-500 w-full relative">
         <div id="progressShimmer"
           class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent translate-x-[-100%]">
         </div>
       </div>
     </div>
 
-    <!-- ── Inline Keyframes for Header Animations ── -->
-    <style>
-      @keyframes gradientShift {
-        0% {
-          background-position: 0% 50%
-        }
-
-        100% {
-          background-position: 200% 50%
-        }
-      }
-
-      @keyframes borderGlow {
-
-        0%,
-        100% {
-          opacity: .6
-        }
-
-        50% {
-          opacity: 1
-        }
-      }
-
-      @keyframes avatarRing {
-        0% {
-          transform: rotate(0deg)
-        }
-
-        100% {
-          transform: rotate(360deg)
-        }
-      }
-
-      @keyframes slideInDown {
-        from {
-          opacity: 0;
-          transform: translateY(-8px)
-        }
-
-        to {
-          opacity: 1;
-          transform: translateY(0)
-        }
-      }
-
-      @keyframes navActivePill {
-        from {
-          opacity: 0;
-          transform: scaleX(.5)
-        }
-
-        to {
-          opacity: 1;
-          transform: scaleX(1)
-        }
-      }
-
-      /* Utility bar animated gradient bottom border */
-      #utilityBar::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 1px;
-        background: linear-gradient(90deg, transparent, #f20d46, #818cf8, #f20d46, transparent);
-        background-size: 200% 100%;
-        animation: gradientShift 4s linear infinite;
-        opacity: 0.5;
-      }
-
-      /* Avatar rainbow ring */
-      .avatar-ring-wrap::before {
-        content: '';
-        position: absolute;
-        inset: -2px;
-        border-radius: 9999px;
-        background: conic-gradient(from 0deg, #f20d46, #fb7185, #818cf8, #34d399, #f20d46);
-        animation: avatarRing 3s linear infinite;
-        z-index: 0;
-      }
-
-      .avatar-ring-wrap {
-        position: relative;
-        padding: 2px;
-        border-radius: 9999px;
-      }
-
-      .avatar-ring-inner {
-        position: relative;
-        z-index: 1;
-        border-radius: 9999px;
-        overflow: hidden;
-      }
-
-      /* Nav active pill glow */
-      .nav-pill.nav-active {
-        color: #f20d46;
-        font-weight: 700;
-      }
-
-      .nav-pill.nav-active .nav-active-bg {
-        opacity: 1;
-        transform: scaleX(1);
-      }
-
-      .nav-active-bg {
-        position: absolute;
-        inset: 0;
-        border-radius: 9999px;
-        background: linear-gradient(135deg, rgba(242, 13, 70, .10), rgba(129, 140, 248, .08));
-        border: 1px solid rgba(242, 13, 70, .15);
-        opacity: 0;
-        transform: scaleX(.6);
-        transition: all .3s cubic-bezier(.34, 1.56, .64, 1);
-      }
-
-      /* Let's Talk aurora */
-      @keyframes auroraPulse {
-
-        0%,
-        100% {
-          box-shadow: 0 0 0 0 rgba(242, 13, 70, 0), 0 4px 20px rgba(242, 13, 70, .3);
-        }
-
-        50% {
-          box-shadow: 0 0 0 4px rgba(242, 13, 70, .1), 0 6px 28px rgba(242, 13, 70, .45);
-        }
-      }
-
-      #letsTalkBtn:hover {
-        animation: auroraPulse 1.8s ease-in-out infinite;
-      }
-
-      /* Typer fixed-width container to prevent layout shift */
-      #availTyper {
-        display: inline-block;
-        min-width: 140px;
-      }
-
-      /* Mega dropdown entrance */
-      .mega-dropdown-panel {
-        animation: slideInDown .2s cubic-bezier(.34, 1.56, .64, 1);
-      }
-    </style>
-
     <!-- ── Top Utility Bar (hides on scroll-down, shows on scroll-up) ── -->
     <div id="utilityBar"
       class="fixed top-0 left-0 right-0 z-[65] bg-slate-900 border-b border-white/5 text-xs font-medium tracking-wide transition-transform duration-300">
-      <div class="container mx-auto flex items-center justify-between px-4 py-1.5 sm:px-6 lg:px-8">
-        <!-- Left: availability + contact -->
-        <div class="flex items-center gap-3 text-slate-400">
-          <!-- Availability badge -->
+      <div class="container mx-auto flex items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
+
+        <!-- Left: contact + animated availability badge -->
+        <div class="flex items-center gap-4 text-slate-400">
+          <!-- Availability badge (animated) -->
           <div
-            class="flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 shrink-0">
+            class="hidden sm:flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
             <span class="relative flex h-2 w-2">
               <span
                 class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
-            <span id="availTyper" class="text-[11px] font-semibold whitespace-nowrap"></span>
+            <span id="availTyper" class="text-[11px] font-semibold"></span>
           </div>
+
           <span class="hidden sm:block w-px h-3 bg-white/10"></span>
 
-          <!-- Email — glassy pill badge -->
-          <a href="mailto:rishvinreddy@gmail.com"
-            class="hidden md:flex items-center gap-1.5 px-2.5 py-1 rounded-full text-slate-400 hover:text-white border border-transparent hover:border-primary/25 hover:bg-white/8 transition-all duration-200 group"
+          <a href="mailto:guggilla.yogamruthreddy4422@gmail.com"
+            class="hidden md:flex items-center gap-1.5 hover:text-white transition-colors duration-200 group"
             aria-label="Email">
-            <svg
-              class="w-3.5 h-3.5 text-primary/70 group-hover:text-primary group-hover:scale-110 transition-all duration-200"
-              fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-3.5 h-3.5 text-primary group-hover:scale-110 transition-transform" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24">
               <path
                 d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-            <span class="text-[11px] font-medium tracking-wide">rishvinreddy@gmail.com</span>
+            <span>guggilla.yogamruthreddy4422@gmail.com</span>
           </a>
 
-          <!-- Phone — glassy pill badge -->
           <a href="tel:+919848723235"
-            class="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-full text-slate-400 hover:text-white border border-transparent hover:border-emerald-500/25 hover:bg-white/8 transition-all duration-200 group"
+            class="hidden lg:flex items-center gap-1.5 hover:text-white transition-colors duration-200 group"
             aria-label="Call">
-            <svg
-              class="w-3.5 h-3.5 text-emerald-500/70 group-hover:text-emerald-400 group-hover:scale-110 transition-all duration-200"
-              fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-3.5 h-3.5 text-primary group-hover:scale-110 transition-transform" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24">
               <path
                 d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-            <span class="text-[11px] font-medium tracking-wide">+91 98487 23235</span>
+            <span>+91 99890 17487</span>
           </a>
         </div>
-        <!-- Right: Social icons + live clock -->
-        <!-- Social Icons — upgraded with brand glow on hover -->
-        <div class="flex items-center gap-0.5 ml-1">
 
-          <!-- WhatsApp — correct Simple Icons path with phone handset inside -->
-          <a class="relative w-8 h-8 flex items-center justify-center rounded-full text-[#25d366] transition-all duration-200 hover:scale-110 hover:brightness-125 group"
+        <!-- Right: Social icons + GitHub star count -->
+        <div class="flex items-center gap-1">
+          <a class="w-7 h-7 flex items-center justify-center rounded-full text-slate-400 hover:text-[#25d366] hover:bg-white/10 transition-all duration-200"
             href="https://wa.me/message/J4P3MRT5HOAZH1" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-            <span
-              class="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-              style="background: radial-gradient(circle, rgba(37,211,102,.15) 0%, transparent 75%); box-shadow: 0 0 10px rgba(37,211,102,.25);"></span>
-            <svg class="w-4 h-4 relative z-10" fill="currentColor" viewBox="0 0 24 24">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
               <path
-                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413A11.815 11.815 0 0012.05 0" />
+                d="M20.52 3.48A11.89 11.89 0 0012 0C5.373 0 .01 5.373.01 12.001 0 14.24.6 16.3 1.71 18.03L0 24l6.21-1.62A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12 0-3.2-1.24-6.2-3.48-8.52z" />
             </svg>
           </a>
-
-          <!-- Instagram — correct Simple Icons path (camera body + lens + dot) -->
-          <a class="relative w-8 h-8 flex items-center justify-center rounded-full text-pink-400 transition-all duration-200 hover:scale-110 hover:brightness-125 group"
-            href="https://www.instagram.com/rishvin.reddy?igsh=Ym85aDhsOXpqeXdx&utm_source=qr" target="_blank"
-            rel="noopener noreferrer" aria-label="Instagram">
-            <span
-              class="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-              style="background: radial-gradient(circle, rgba(236,72,153,.15) 0%, transparent 75%); box-shadow: 0 0 10px rgba(236,72,153,.25);"></span>
-            <svg class="w-4 h-4 relative z-10" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12c0 3.259.014 3.668.072 4.948.061 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24c3.259 0 3.668-.014 4.948-.072 1.277-.061 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.061-1.28.072-1.689.072-4.948 0-3.259-.014-3.667-.072-4.947-.061-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06zm0 3.678a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405a1.441 1.441 0 01-2.88 0 1.44 1.44 0 012.88 0z" />
-            </svg>
-          </a>
-
-          <!-- LinkedIn — correct Simple Icons path -->
-          <a class="relative w-8 h-8 flex items-center justify-center rounded-full text-[#0a66c2] transition-all duration-200 hover:scale-110 hover:brightness-150 group"
-            href="https://www.linkedin.com/in/rishvinreddy" target="_blank" rel="noopener noreferrer"
+          
+          <a class="w-7 h-7 flex items-center justify-center rounded-full text-slate-400 hover:text-[#0077b5] hover:bg-white/10 transition-all duration-200"
+            href="https://www.linkedin.com/in/yogamruthreddy/" target="_blank" rel="noopener noreferrer"
             aria-label="LinkedIn">
-            <span
-              class="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-              style="background: radial-gradient(circle, rgba(10,102,194,.15) 0%, transparent 75%); box-shadow: 0 0 10px rgba(10,102,194,.25);"></span>
-            <svg class="w-4 h-4 relative z-10" fill="currentColor" viewBox="0 0 24 24">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
               <path
-                d="M20.447 20.452h-3.554v-5.569c0-1.328-.025-3.037-1.853-3.037-1.854 0-2.137 1.447-2.137 2.943v5.663H8.352V9h3.414v1.561h.049c.476-.9 1.637-1.853 3.369-1.853 3.602 0 4.268 2.37 4.268 5.455v6.289zM5.337 7.433a2.064 2.064 0 110-4.128 2.064 2.064 0 010 4.128zM7.119 20.452H3.554V9h3.565v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.025-3.037-1.853-3.037-1.854 0-2.137 1.447-2.137 2.943v5.663H8.352V9h3.414v1.561h.049c.476-.9 1.637-1.853 3.369-1.853 3.602 0 4.268 2.37 4.268 5.455v6.289zM5.337 7.433a2.064 2.064 0 110-4.128 2.064 2.064 0 010 4.128zM7.119 20.452H3.554V9h3.565v11.452z" />
             </svg>
           </a>
-
-          <!-- GitHub — correct Simple Icons Octocat path -->
-          <a class="hidden sm:flex relative w-8 h-8 items-center justify-center rounded-full text-slate-300 transition-all duration-200 hover:scale-110 hover:text-white group"
-            href="https://github.com/RishvinReddy" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-            <span
-              class="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-              style="background: radial-gradient(circle, rgba(255,255,255,.12) 0%, transparent 75%); box-shadow: 0 0 10px rgba(255,255,255,.15);"></span>
-            <svg class="w-4 h-4 relative z-10" fill="currentColor" viewBox="0 0 24 24">
+          <a class="hidden sm:flex w-7 h-7 items-center justify-center rounded-full text-slate-400 hover:text-white hover:bg-white/10 transition-all duration-200"
+            href="https://github.com/YogamruthReddy" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
               <path
-                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
             </svg>
           </a>
-
-          <!-- Divider -->
-          <span class="hidden xl:block w-px h-4 bg-white/10 mx-1.5"></span>
-
-          <!-- Live Clock — Heroicons clock outline -->
-          <span class="hidden xl:flex items-center gap-1.5 text-slate-500">
-            <svg class="w-3.5 h-3.5 text-primary/60" fill="none" stroke="currentColor" stroke-width="1.75"
-              viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10" />
-              <polyline points="12 6 12 12 16 14" />
-            </svg>
-            <span id="liveClock" class="font-mono text-[11px] text-slate-400 tabular-nums"></span>
-          </span>
         </div>
       </div>
     </div>
@@ -367,31 +190,25 @@
       style="top: 2.25rem">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <!-- The nav pill itself -->
-        <div id="mainNav"
-          class="mx-auto max-w-5xl rounded-full px-5 py-2.5 flex items-center justify-between transition-all duration-300 bg-white/80 backdrop-blur-xl border border-white/40 shadow-lg"
-          style="box-shadow: 0 4px 24px rgba(0,0,0,.06), 0 1px 0 rgba(255,255,255,.8) inset, 0 -1px 0 rgba(148,163,184,.15) inset;">
+        <div id="mainNav" class="mx-auto max-w-5xl rounded-full px-5 py-2.5 flex items-center justify-between transition-all duration-300 bg-white/75 backdrop-blur-lg border border-white/30 shadow-lg shadow-slate-200/30">
 
-          <!-- ── Logo / Avatar (clean premium style) ── -->
-          <a class="flex items-center gap-3 group shrink-0" href="index.html">
-            <!-- Avatar: clean border + subtle glow on hover, no spinning -->
-            <div class="relative shrink-0">
+          <!-- ── Logo / Avatar ── -->
+          <a class="flex items-center gap-2.5 group shrink-0" href="index.html">
+            <div class="relative">
+              <!-- Pulse ring on hover -->
               <div
-                class="w-9 h-9 rounded-full overflow-hidden border-2 border-white/70 shadow-md transition-all duration-300 group-hover:border-primary/40 group-hover:shadow-[0_0_14px_rgba(242,13,70,0.30)] group-hover:scale-105">
-                <img src="icon.png" alt="Rishvin Reddy"
+                class="absolute inset-0 rounded-full bg-primary/30 scale-110 opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-opacity duration-300">
+              </div>
+              <div
+                class="relative w-9 h-9 overflow-hidden rounded-full border-2 border-white/80 shadow-md group-hover:scale-105 transition-transform duration-300">
+                <img src="https://avatars.githubusercontent.com/u/220704858?v=4" alt="Yogamruth Reddy"
                   class="w-full h-full object-cover">
               </div>
-              <!-- Tiny online indicator dot -->
-              <span
-                class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-white rounded-full shadow-sm"></span>
             </div>
-            <!-- Name + role -->
-            <div class="flex flex-col leading-none gap-0.5">
-              <span
-                class="text-[15px] font-extrabold tracking-tight bg-gradient-to-r from-slate-900 to-slate-600 group-hover:from-primary group-hover:to-rose-500 bg-clip-text text-transparent transition-all duration-400">Rishvin</span>
-              <span
-                class="text-[9px] font-bold tracking-[0.12em] uppercase text-slate-400 group-hover:text-primary/70 transition-colors duration-300">Portfolio
-              </span>
-            </div>
+            <span
+              class="text-base font-extrabold tracking-tight bg-gradient-to-r from-slate-900 via-slate-700 to-slate-500 group-hover:from-primary group-hover:via-rose-500 group-hover:to-indigo-600 bg-clip-text text-transparent transition-all duration-500">
+              Yogamruth
+            </span>
           </a>
 
           <!-- ── Desktop Navigation ── -->
@@ -401,26 +218,24 @@
               class="absolute inset-y-0 rounded-full bg-primary/8 transition-all duration-200 ease-out pointer-events-none opacity-0">
             </div>
 
-            <a class="nav-pill relative px-4 py-2 text-sm font-medium text-slate-600 rounded-full transition-all duration-200 hover:text-primary group"
-              href="index.html" data-page="index">
+            <a class="nav-pill relative px-4 py-2 text-sm font-medium text-slate-600 rounded-full transition-all duration-200 hover:text-primary group" href="index.html" data-page="index">
               <span class="relative z-10">Home</span>
               <span
                 class="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-primary rounded-full group-hover:w-4 transition-all duration-300"></span>
             </a>
-            <a class="nav-pill relative px-4 py-2 text-sm font-medium text-slate-600 rounded-full transition-all duration-200 hover:text-primary group"
-              href="About_page.html" data-page="about">
+            <a class="nav-pill relative px-4 py-2 text-sm font-medium text-slate-600 rounded-full transition-all duration-200 hover:text-primary group" href="About_page.html"
+              data-page="about">
               <span class="relative z-10">About</span>
               <span
                 class="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-primary rounded-full group-hover:w-4 transition-all duration-300"></span>
             </a>
-            <a class="nav-pill relative px-4 py-2 text-sm font-medium text-slate-600 rounded-full transition-all duration-200 hover:text-primary group"
-              href="Portfolio_page.html" data-page="portfolio">
+            <a class="nav-pill relative px-4 py-2 text-sm font-medium text-slate-600 rounded-full transition-all duration-200 hover:text-primary group" href="Portfolio_page.html"
+              data-page="portfolio">
               <span class="relative z-10">Work</span>
               <span
                 class="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-primary rounded-full group-hover:w-4 transition-all duration-300"></span>
             </a>
-            <a class="nav-pill relative px-4 py-2 text-sm font-medium text-slate-600 rounded-full transition-all duration-200 hover:text-primary group"
-              href="IDE.html" data-page="ide">
+            <a class="nav-pill relative px-4 py-2 text-sm font-medium text-slate-600 rounded-full transition-all duration-200 hover:text-primary group" href="IDE.html" data-page="ide">
               <span class="relative z-10 flex items-center gap-1">
                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke-width="2" stroke-linecap="round"
@@ -431,8 +246,8 @@
               <span
                 class="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-primary rounded-full group-hover:w-4 transition-all duration-300"></span>
             </a>
-            <a class="nav-pill relative px-4 py-2 text-sm font-medium text-slate-600 rounded-full transition-all duration-200 hover:text-primary group"
-              href="Services_page.html" data-page="services">
+            <a class="nav-pill relative px-4 py-2 text-sm font-medium text-slate-600 rounded-full transition-all duration-200 hover:text-primary group" href="Services_page.html"
+              data-page="services">
               <span class="relative z-10">Services</span>
               <span
                 class="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-primary rounded-full group-hover:w-4 transition-all duration-300"></span>
@@ -452,10 +267,10 @@
               </button>
 
               <!-- Mega dropdown panel -->
-              <div
-                class="absolute right-0 top-full mt-3 w-64 origin-top-right bg-white/97 backdrop-blur-2xl rounded-2xl shadow-2xl shadow-slate-300/20 border border-slate-100/80 p-2 invisible opacity-0 translate-y-2 scale-95 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100 transition-all duration-250">
+              <div class="absolute right-0 top-full mt-3 w-64 origin-top-right bg-white/97 backdrop-blur-2xl rounded-2xl shadow-2xl shadow-slate-300/20 border border-slate-100/80 p-2 invisible opacity-0 translate-y-2 scale-95 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-hover:scale-100 transition-all duration-250">
                 <!-- Header label -->
-                <p class="px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">
+                <p
+                  class="px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">
                   More Pages</p>
 
                 <a class="mega-link flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 transition-all duration-150 group/item"
@@ -469,7 +284,8 @@
                     </svg>
                   </span>
                   <div>
-                    <p class="text-sm font-semibold text-slate-700 group-hover/item:text-primary transition-colors">
+                    <p
+                      class="text-sm font-semibold text-slate-700 group-hover/item:text-primary transition-colors">
                       Resume</p>
                     <p class="text-[11px] text-slate-400 leading-tight">Download CV & experience</p>
                   </div>
@@ -485,7 +301,8 @@
                     </svg>
                   </span>
                   <div>
-                    <p class="text-sm font-semibold text-slate-700 group-hover/item:text-primary transition-colors">
+                    <p
+                      class="text-sm font-semibold text-slate-700 group-hover/item:text-primary transition-colors">
                       Skills & Certs</p>
                     <p class="text-[11px] text-slate-400 leading-tight">Tech stack & certifications</p>
                   </div>
@@ -501,7 +318,8 @@
                     </svg>
                   </span>
                   <div>
-                    <p class="text-sm font-semibold text-slate-700 group-hover/item:text-primary transition-colors">
+                    <p
+                      class="text-sm font-semibold text-slate-700 group-hover/item:text-primary transition-colors">
                       Awards</p>
                     <p class="text-[11px] text-slate-400 leading-tight">Honours & achievements</p>
                   </div>
@@ -517,7 +335,8 @@
                     </svg>
                   </span>
                   <div>
-                    <p class="text-sm font-semibold text-slate-700 group-hover/item:text-primary transition-colors">
+                    <p
+                      class="text-sm font-semibold text-slate-700 group-hover/item:text-primary transition-colors">
                       Blog</p>
                     <p class="text-[11px] text-slate-400 leading-tight">Articles & insights</p>
                   </div>
@@ -533,7 +352,8 @@
                     </svg>
                   </span>
                   <div>
-                    <p class="text-sm font-semibold text-slate-700 group-hover/item:text-primary transition-colors">
+                    <p
+                      class="text-sm font-semibold text-slate-700 group-hover/item:text-primary transition-colors">
                       FAQ</p>
                     <p class="text-[11px] text-slate-400 leading-tight">Common questions answered</p>
                   </div>
@@ -557,19 +377,13 @@
 
           <!-- ── Right Actions ── -->
           <div class="flex items-center gap-2 shrink-0">
+            
 
-
-            <!-- ── Aurora "Let's Talk" CTA ── -->
-            <a id="letsTalkBtn" href="CTA_page.html"
-              class="hidden md:inline-flex items-center gap-2 px-5 py-2 text-sm font-bold text-white rounded-full shadow-md hover:-translate-y-0.5 hover:scale-105 transition-all duration-300 relative overflow-hidden group"
-              style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #7c0e27 100%);">
-              <!-- Aurora sweep shimmer -->
+            <!-- Magnetic "Let's Talk" CTA -->
+            <a id="letsTalkBtn" href="CTA_page.html" class="hidden md:inline-flex items-center gap-2 px-5 py-2 text-sm font-bold text-white rounded-full bg-gradient-to-r from-slate-900 to-slate-800 hover:from-primary hover:to-rose-500 shadow-md hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 hover:scale-105 transition-all duration-300 relative overflow-hidden group">
+              <!-- Shine sweep -->
               <span
-                class="absolute inset-0 -translate-x-full skew-x-12 bg-gradient-to-r from-transparent via-white/25 to-transparent group-hover:translate-x-full transition-transform duration-700 ease-out pointer-events-none"></span>
-              <!-- Gradient border ring on hover -->
-              <span
-                class="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                style="background: linear-gradient(135deg, #f20d46 0%, #818cf8 50%, #f20d46 100%); mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; padding: 1.5px;"></span>
+                class="absolute inset-0 -translate-x-full skew-x-12 bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-full transition-transform duration-700 ease-out pointer-events-none"></span>
               <span class="relative z-10 flex items-center gap-1.5">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                 Let's Talk
@@ -589,8 +403,7 @@
       </div>
 
       <!-- ── Mobile Menu (staggered entrance) ── -->
-      <div id="mobileMenu"
-        class="absolute top-full left-3 right-3 mt-2 p-4 bg-white/97 backdrop-blur-2xl rounded-3xl shadow-2xl shadow-slate-300/20 border border-white/40 flex flex-col gap-1 origin-top scale-95 opacity-0 invisible transition-all duration-300">
+      <div id="mobileMenu" class="absolute top-full left-3 right-3 mt-2 p-4 bg-white/97 backdrop-blur-2xl rounded-3xl shadow-2xl shadow-slate-300/20 border border-white/40 flex flex-col gap-1 origin-top scale-95 opacity-0 invisible transition-all duration-300">
 
         <p class="px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-0.5">
           Navigate</p>
@@ -722,8 +535,7 @@
         </div>
 
         <div class="border-t border-slate-100 mt-1.5 pt-2">
-          <a href="CTA_page.html"
-            class="flex items-center justify-center gap-2 w-full py-3 text-sm font-bold text-white bg-gradient-to-r from-primary to-rose-500 rounded-2xl shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:scale-[1.02] transition-all duration-200 relative overflow-hidden group">
+          <a href="CTA_page.html" class="flex items-center justify-center gap-2 w-full py-3 text-sm font-bold text-white bg-gradient-to-r from-primary to-rose-500 rounded-2xl shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:scale-[1.02] transition-all duration-200 relative overflow-hidden group">
             <span
               class="absolute inset-0 -translate-x-full skew-x-12 bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:translate-x-full transition-transform duration-700 ease-out"></span>
             <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
@@ -786,10 +598,10 @@
           if (mainNav) {
             if (scrolledFar) {
               mainNav.classList.add('bg-white/90', 'shadow-xl', 'shadow-slate-200/30');
-              mainNav.classList.remove('bg-white/80');
+              mainNav.classList.remove('bg-white/75');
             } else {
               mainNav.classList.remove('bg-white/90', 'shadow-xl');
-              mainNav.classList.add('bg-white/80');
+              mainNav.classList.add('bg-white/75');
             }
           }
           lastScrollY = scrollY;
@@ -802,7 +614,7 @@
         /* ─── Availability typer ─── */
         const typerEl = document.getElementById('availTyper');
         if (typerEl) {
-          const phrases = ['Open to full-time roles', 'Available for freelance', 'Remote · Ready now', 'Open source contributor'];
+          const phrases = ['Open to full-time roles', 'Available for freelance', 'Remote · Ready now'];
           let pi = 0, ci = 0, deleting = false;
           function type() {
             const phrase = phrases[pi];
@@ -813,19 +625,6 @@
           }
           type();
         }
-
-        /* ─── Live Clock ─── */
-        const clockEl = document.getElementById('liveClock');
-        function updateClock() {
-          if (!clockEl) return;
-          const now = new Date();
-          const hh = String(now.getHours()).padStart(2, '0');
-          const mm = String(now.getMinutes()).padStart(2, '0');
-          const ss = String(now.getSeconds()).padStart(2, '0');
-          clockEl.textContent = hh + ':' + mm + ':' + ss + ' IST';
-        }
-        updateClock();
-        setInterval(updateClock, 1000);
 
         /* ─── Active Link ─── */
         const currentPath = window.location.pathname.split('/').pop() || 'index.html';
@@ -893,9 +692,8 @@
           window.addEventListener('resize', function () { if (window.innerWidth >= 768) setMobile(false); });
         }
 
-      })();
+        })();
     </script>
-
     <!-- ===== Header Spacer (since header is fixed) ===== -->
     <div class="h-32 shrink-0"></div>
 
@@ -903,216 +701,525 @@
     <!-- ===========================
      ABOUT — The Narrative Flow (Hero -> Stats -> Story -> Tech -> Impact)
      =========================== -->
-        <main class="flex-grow pt-20">
-      
-      <!-- 1. Hero Identity (Apple Style Large Typography) -->
-      <section class="min-h-[85vh] flex flex-col justify-center items-center text-center px-6 relative">
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-200/50 via-slate-50 to-transparent -z-10 opacity-70"></div>
-        <div class="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900 border border-slate-700 text-white text-xs font-bold tracking-widest uppercase shadow-2xl animate-fade-in-up" style="animation-delay: 0.1s;">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Identity
-        </div>
-        <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-slate-900 mb-6 leading-[1.05] animate-fade-in-up" style="animation-delay: 0.3s;">
-          I build technology that <br class="hidden md:block" />
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-rose-500 to-indigo-600">solves real-world problems.</span>
-        </h1>
-        <p class="text-xl md:text-2xl text-slate-500 font-medium max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 0.5s;">
-          Not just projects that sit in repositories. <br class="hidden md:block" />
-          As a developer focused on IoT and scalable systems, I create solutions where software meets practical impact.
-        </p>
-      </section>
+    <main class="flex-grow pt-20">
+      <div class="mx-auto max-w-5xl px-6 py-12 sm:px-8 lg:px-12">
 
-      <!-- 2. The Story (Scroll sequence) -->
-      <section class="py-32 px-6 max-w-6xl mx-auto relative scroll-reveal">
-        <div class="sticky top-32 mb-16 md:mb-0 md:absolute md:w-[40%] z-10 transition-all duration-500">
-          <span class="text-primary font-extrabold tracking-widest uppercase text-sm mb-3 block">The Story</span>
-          <h2 class="text-5xl md:text-7xl font-black text-slate-900 leading-[1.1] tracking-tight">Curiosity <br>to Scale.</h2>
-        </div>
-        
-        <div class="md:w-1/2 md:ml-auto space-y-32 pd-bottom-20">
-          <div class="scroll-reveal transition-all duration-1000 ease-out">
-            <h3 class="text-3xl font-bold text-slate-900 mb-4">It started with curiosity.</h3>
-            <p class="text-xl text-slate-600 leading-relaxed font-medium">My journey into technology didn’t start with complexity. I was always interested in understanding how systems work, but more importantly, how they could work better.</p>
-          </div>
-          
-          <div class="scroll-reveal transition-all duration-1000 ease-out">
-            <h3 class="text-3xl font-bold text-slate-900 mb-4">From foundations to real-world applications.</h3>
-            <p class="text-xl text-slate-600 leading-relaxed font-medium">That curiosity led me from learning fundamentals to building real-world applications, and eventually to designing solutions that go beyond code.</p>
-          </div>
-
-          <div class="scroll-reveal transition-all duration-1000 ease-out p-10 bg-white/80 backdrop-blur-xl shadow-[0_20px_50px_rgba(8,_112,_184,_0.07)] border border-white/60 rounded-3xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500">
-            <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity duration-500 group-hover:scale-110">
-              <i class="fa-solid fa-stamp text-8xl text-indigo-600"></i>
-            </div>
-            <span class="inline-flex items-center gap-2 px-3 py-1 bg-indigo-50 text-indigo-600 text-xs font-bold uppercase tracking-widest rounded-full mb-6 border border-indigo-100">Milestone</span>
-            <h3 class="text-3xl font-black text-slate-900 mb-4 tracking-tight">Design Patent Holder</h3>
-            <p class="text-lg text-slate-600 leading-relaxed relative z-10">A defining milestone was earning a Design Patent from the Government of India for an IoT Connectivity Device — a project focused on improving how devices communicate within connected ecosystems.</p>
-          </div>
-
-          <div class="scroll-reveal transition-all duration-1000 ease-out">
-            <h3 class="text-4xl font-black text-slate-900 mb-5 tracking-tight">The Shift.</h3>
-            <p class="text-2xl text-slate-600 leading-relaxed font-medium">That experience changed my approach.</p>
-            <div class="mt-6 p-6 border-l-4 border-primary bg-primary/5 rounded-r-2xl">
-              <p class="text-xl font-bold text-slate-900 italic">"I stopped thinking like someone who just writes code, and started thinking like someone who builds systems."</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Section Divider -->
-      <div class="section-divider my-10" aria-hidden="true"><span class="divider-gem"></span></div>
-
-      <!-- 3. What I Do (Bento style / Apple Grid) -->
-      <section class="py-32 bg-slate-900 text-white rounded-[3rem] mx-4 md:mx-10 my-10 px-6 relative overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.4)]">
-        <!-- Ambient background glows -->
-        <div class="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] bg-primary/30 blur-[120px] rounded-full pointer-events-none mix-blend-screen"></div>
-        <div class="absolute -bottom-[20%] -right-[10%] w-[50%] h-[50%] bg-indigo-600/30 blur-[120px] rounded-full pointer-events-none mix-blend-screen"></div>
-        
-        <div class="max-w-6xl mx-auto relative z-10">
-          <div class="text-center mb-20 scroll-reveal">
-            <span class="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white font-bold tracking-widest uppercase text-xs mb-6 backdrop-blur-md">What I Do</span>
-            <h2 class="text-5xl md:text-7xl font-black tracking-tight leading-[1.1]">Built to scale. <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Designed for impact.</span></h2>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <!-- Practical -->
-            <div class="bg-white/5 border border-white/10 p-10 rounded-3xl backdrop-blur-xl hover:-translate-y-2 hover:bg-white/10 transition-all duration-300 scroll-reveal group">
-              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center shadow-lg shadow-emerald-500/30 mb-6 group-hover:scale-110 transition-transform duration-300">
-                <i class="fa-solid fa-hammer text-xl text-white"></i>
+        <!-- 1. Hero Section (Super Premium) -->
+        <div class="text-center mb-20 relative">
+          <!-- Avatar with animated gradient ring -->
+          <div class="relative inline-block mb-8">
+            <div class="relative w-44 h-44 mx-auto">
+              <!-- Spinning gradient ring -->
+              <div class="absolute inset-0 rounded-full animate-spin"
+                style="background: conic-gradient(from 0deg, #f20d46, #6366f1, #10b981, #f20d46); animation-duration: 4s;">
               </div>
-              <h3 class="text-2xl font-bold mb-3 text-white">Practical</h3>
-              <p class="text-slate-400 leading-relaxed font-medium">Built for real use cases, solving actual problems instead of just sitting as a demonstration.</p>
-            </div>
-            
-            <!-- Scalable -->
-            <div class="bg-white/5 border border-white/10 p-10 rounded-3xl backdrop-blur-xl hover:-translate-y-2 hover:bg-white/10 transition-all duration-300 scroll-reveal group" style="transition-delay: 100ms;">
-              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-400 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-500/30 mb-6 group-hover:scale-110 transition-transform duration-300">
-                <i class="fa-solid fa-network-wired text-xl text-white"></i>
-              </div>
-              <h3 class="text-2xl font-bold mb-3 text-white">Scalable</h3>
-              <p class="text-slate-400 leading-relaxed font-medium">Architected with robust infrastructure designed to grow effortlessly beyond its initial implementation.</p>
-            </div>
-            
-            <!-- Efficient -->
-            <div class="bg-white/5 border border-white/10 p-10 rounded-3xl backdrop-blur-xl hover:-translate-y-2 hover:bg-white/10 transition-all duration-300 scroll-reveal group" style="transition-delay: 200ms;">
-              <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-400 to-primary flex items-center justify-center shadow-lg shadow-rose-500/30 mb-6 group-hover:scale-110 transition-transform duration-300">
-                <i class="fa-solid fa-bolt text-xl text-white"></i>
-              </div>
-              <h3 class="text-2xl font-bold mb-3 text-white">Efficient</h3>
-              <p class="text-slate-400 leading-relaxed font-medium">Optimized continuously for peak performance, robust security, and exceptional usability.</p>
-            </div>
-          </div>
-
-          <div class="mt-8 grid grid-cols-1 md:grid-cols-5 gap-6">
-            <div class="md:col-span-3 bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700 p-10 rounded-3xl hover:border-primary/50 transition-colors scroll-reveal group overflow-hidden relative">
-              <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-5 group-hover:opacity-10 transition-opacity duration-500 mix-blend-overlay"></div>
-              <h3 class="text-3xl font-black mb-8 tracking-tight text-white relative z-10">Core Domains</h3>
-              <ul class="space-y-6 relative z-10">
-                <li class="flex items-start gap-5 p-4 rounded-2xl hover:bg-white/5 transition-colors">
-                  <div class="mt-1 w-12 h-12 rounded-xl bg-primary/20 text-primary flex items-center justify-center shrink-0 border border-primary/20"><i class="fa-solid fa-code text-xl"></i></div>
-                  <div>
-                    <h4 class="text-xl font-bold text-white">Web Development</h4>
-                    <p class="text-slate-400 text-base mt-1">Building responsive, lightning-fast, and user-focused web applications.</p>
-                  </div>
-                </li>
-                <li class="flex items-start gap-5 p-4 rounded-2xl hover:bg-white/5 transition-colors">
-                  <div class="mt-1 w-12 h-12 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center shrink-0 border border-indigo-500/20"><i class="fa-solid fa-microchip text-xl"></i></div>
-                  <div>
-                    <h4 class="text-xl font-bold text-white">IoT Systems</h4>
-                    <p class="text-slate-400 text-base mt-1">Designing and integrating custom, secure connected device architectures.</p>
-                  </div>
-                </li>
-                <li class="flex items-start gap-5 p-4 rounded-2xl hover:bg-white/5 transition-colors">
-                  <div class="mt-1 w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-500/20"><i class="fa-solid fa-puzzle-piece text-xl"></i></div>
-                  <div>
-                    <h4 class="text-xl font-bold text-white">Problem Solving</h4>
-                    <p class="text-slate-400 text-base mt-1">Translating abstract ideas into working, robust software systems.</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            
-            <div class="md:col-span-2 bg-[url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center rounded-3xl relative overflow-hidden group scroll-reveal min-h-[400px]">
-              <div class="absolute inset-0 bg-slate-900/60 group-hover:bg-slate-900/40 transition-colors duration-500"></div>
-              <div class="absolute bottom-10 left-10 right-10 transform group-hover:-translate-y-2 transition-transform duration-500">
-                <span class="px-3 py-1.5 bg-white/20 backdrop-blur-md border border-white/30 rounded-full text-xs font-bold uppercase tracking-widest text-white mb-4 inline-block shadow-lg">The Setup</span>
-                <h3 class="text-4xl font-black text-white leading-tight tracking-tight">Bridging <br>Hardware & <span class="text-primary hover:text-white transition-colors">Software.</span></h3>
+              <div class="absolute inset-1 rounded-full bg-white"></div>
+              <div class="absolute inset-2 rounded-full overflow-hidden">
+                <img src="https://avatars.githubusercontent.com/u/220704858?v=4" alt="Yogamruth Reddy"
+                  class="w-full h-full object-cover">
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Section Divider -->
-      <div class="section-divider my-10" aria-hidden="true"><span class="divider-gem"></span></div>
-
-      <!-- 4. How I Think -->
-      <section class="py-32 px-6 max-w-5xl mx-auto text-center scroll-reveal">
-        <span class="inline-block px-3 py-1 bg-slate-100 text-slate-600 font-extrabold tracking-widest uppercase text-xs rounded-full mb-6 border border-slate-200 shadow-sm">How I Think</span>
-        <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-10 leading-[1.1] tracking-tight">
-          Technology is only valuable <br>when it creates impact.
-        </h2>
-        <p class="text-2xl text-slate-600 leading-relaxed mb-16 font-medium max-w-3xl mx-auto">
-          Anyone can learn syntax.<br>
-          <strong class="text-slate-900 font-extrabold pb-1 border-b-[3px] border-primary/30 inline-block mt-2">What matters is the ability to solve problems, design systems, and continuously improve.</strong>
-        </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left mt-20">
-          <div class="p-10 rounded-3xl bg-white border border-slate-100 shadow-xl shadow-slate-200/40 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 group">
-            <h3 class="text-8xl font-black text-slate-50 mb-4 select-none group-hover:text-primary/10 transition-colors duration-500 relative -left-4 leading-none">1</h3>
-            <h4 class="text-2xl font-bold text-slate-900 mb-2">Clarity <br><span class="text-slate-500 font-medium text-lg mt-1 block">over complexity</span></h4>
-          </div>
-          <div class="p-10 rounded-3xl bg-white border border-slate-100 shadow-xl shadow-slate-200/40 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 group" style="transition-delay: 100ms;">
-            <h3 class="text-8xl font-black text-slate-50 mb-4 select-none group-hover:text-indigo-500/10 transition-colors duration-500 relative -left-4 leading-none">2</h3>
-            <h4 class="text-2xl font-bold text-slate-900 mb-2">Functionality <br><span class="text-slate-500 font-medium text-lg mt-1 block">over hype</span></h4>
-          </div>
-          <div class="p-10 rounded-3xl bg-white border border-slate-100 shadow-xl shadow-slate-200/40 hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 group" style="transition-delay: 200ms;">
-            <h3 class="text-8xl font-black text-slate-50 mb-4 select-none group-hover:text-emerald-500/10 transition-colors duration-500 relative -left-4 leading-none">3</h3>
-            <h4 class="text-2xl font-bold text-slate-900 mb-2">Execution <br><span class="text-slate-500 font-medium text-lg mt-1 block">over intention</span></h4>
-          </div>
-        </div>
-      </section>
-
-      <!-- Section Divider -->
-      <div class="section-divider my-10" aria-hidden="true"><span class="divider-gem"></span></div>
-
-      <!-- 5. Vision -->
-      <section class="py-32 px-6 relative overflow-hidden">
-        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-indigo-50/80 via-transparent to-transparent -z-10"></div>
-        <div class="max-w-5xl mx-auto text-center scroll-reveal">
-          <div class="w-20 h-20 rounded-full bg-gradient-to-br from-indigo-100 to-indigo-200 text-indigo-600 mx-auto flex items-center justify-center text-3xl mb-10 shadow-xl shadow-indigo-200/50">
-            <i class="fa-solid fa-eye"></i>
-          </div>
-          <h2 class="text-5xl md:text-7xl font-black text-slate-900 mb-10 tracking-tight leading-[1.1]">The Vision.</h2>
-          <p class="text-2xl md:text-3xl text-slate-600 leading-relaxed max-w-4xl mx-auto font-medium">
-            I am working towards building systems that are not just technically sound, but meaningful — <strong class="text-slate-900">solutions that improve how people interact with technology and how devices interact with each other.</strong>
-          </p>
-          <p class="mt-10 text-xl text-slate-500 max-w-2xl mx-auto font-medium">
-            My goal is to contribute to technology that scales, adapts, and solves real-world challenges.
-          </p>
-        </div>
-      </section>
-
-      <!-- 6. Closing (Integrated with Footer / Next Actions) -->
-      <section class="py-24 px-6 text-center scroll-reveal mb-20">
-        <div class="bg-slate-900 rounded-[3rem] p-16 max-w-5xl mx-auto shadow-2xl shadow-slate-900/30 relative overflow-hidden group hover:scale-[1.01] transition-transform duration-500">
-          <div class="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-indigo-600/30 opacity-50"></div>
-          <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center opacity-10 mix-blend-overlay group-hover:scale-105 group-hover:opacity-20 transition-all duration-1000"></div>
-          
-          <div class="relative z-10">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-bold tracking-widest uppercase mb-8 shadow-2xl">
-              Next Steps
+            <!-- Online badge -->
+            <div
+              class="absolute bottom-2 right-2 flex items-center gap-1.5 bg-white rounded-full px-2.5 py-1 shadow-lg border border-white/60">
+              <span class="relative flex h-2 w-2">
+                <span
+                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+              <span class="text-[10px] font-bold text-emerald-600 uppercase tracking-wide">Open</span>
             </div>
-            <h2 class="text-5xl md:text-7xl font-black text-white mb-8 tracking-tight">Let's build something <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">impactful.</span></h2>
-            <p class="text-slate-300 text-xl md:text-2xl mb-12 max-w-3xl mx-auto font-medium leading-relaxed mt-4">
-              If you're building something meaningful, I’m always open to collaborating, learning, and contributing.
-            </p>
-            <a href="Contact_page.html" class="inline-flex items-center justify-center gap-3 px-10 py-5 bg-white text-slate-900 rounded-full font-black text-xl shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:shadow-[0_0_60px_rgba(255,255,255,0.5)] hover:bg-slate-50 hover:-translate-y-2 transition-all duration-300">
-              Start a Conversation <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+          </div>
+
+          <h1 class="text-5xl sm:text-6xl font-black tracking-tight mb-3">
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-primary to-indigo-700">Yogamruth
+              Reddy</span>
+          </h1>
+          <p class="text-lg sm:text-xl text-slate-500 font-medium mb-6">B.Tech · IoT Developer · Backend &amp; DSA
+            Engineer</p>
+
+          <!-- Domain badges -->
+          <div class="flex flex-wrap gap-2 justify-center mb-8">
+            <span
+              class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-orange-100 text-orange-600 border border-orange-200"><i
+                class="fa-solid fa-microchip text-[10px]"></i> IoT &amp; Embedded</span>
+            <span
+              class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-purple-100 text-purple-600 border border-purple-200"><i
+                class="fa-solid fa-shield-halved text-[10px]"></i> Cybersecurity</span>
+            <span
+              class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-indigo-100 text-indigo-600 border border-indigo-200"><i
+                class="fa-solid fa-link text-[10px]"></i> Blockchain</span>
+            <span
+              class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-600 border border-emerald-200"><i
+                class="fa-solid fa-code text-[10px]"></i> Full-Stack</span>
+          </div>
+
+          <!-- CTA row -->
+          <div class="flex gap-3 justify-center">
+            <a href="Resume_page.html"
+              class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-900 text-white text-sm font-semibold hover:-translate-y-0.5 transition-transform shadow-lg">
+              <i class="fa-solid fa-file-lines text-xs"></i> View Resume
+            </a>
+            <a href="CTA_page.html"
+              class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-white text-sm font-semibold hover:-translate-y-0.5 transition-transform shadow-lg shadow-primary/30">
+              <i class="fa-solid fa-paper-plane text-xs"></i> Let\'s Talk
             </a>
           </div>
         </div>
-      </section>
 
+        <!-- 2. Stats Strip (Premium Glass) -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
+          <div
+            class="group bg-white/70 backdrop-blur-xl border border-white/60 p-5 rounded-3xl text-center shadow-lg hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+            <div class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mx-auto mb-3">
+              <i class="fa-brands fa-github text-lg"></i></div>
+            <div class="text-3xl font-black text-primary mb-0.5">17+</div>
+            <div class="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Public Repos</div>
+          </div>
+          <div
+            class="group bg-white/70 backdrop-blur-xl border border-white/60 p-5 rounded-3xl text-center shadow-lg hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+            <div
+              class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center mx-auto mb-3">
+              <i class="fa-solid fa-layer-group text-lg"></i></div>
+            <div class="text-3xl font-black text-indigo-600 mb-0.5">3</div>
+            <div class="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Core Domains</div>
+          </div>
+          <div
+            class="group bg-white/70 backdrop-blur-xl border border-white/60 p-5 rounded-3xl text-center shadow-lg hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+            <div
+              class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-3">
+              <i class="fa-solid fa-chalkboard-user text-lg"></i></div>
+            <div class="text-3xl font-black text-emerald-600 mb-0.5">20+</div>
+            <div class="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Workshops Led</div>
+          </div>
+          <div
+            class="group bg-white/70 backdrop-blur-xl border border-white/60 p-5 rounded-3xl text-center shadow-lg hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+            <div
+              class="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center mx-auto mb-3">
+              <i class="fa-solid fa-users text-lg"></i></div>
+            <div class="text-3xl font-black text-purple-600 mb-0.5">4</div>
+            <div class="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Github Followers</div>
+          </div>
+        </div>
+
+        <!-- 3. My Story (Premium Timeline Card) -->
+        <section class="max-w-3xl mx-auto mb-24">
+          <h2 class="text-3xl font-black text-slate-900 mb-10 text-center flex items-center justify-center gap-3">
+            <span class="w-8 h-8 rounded-xl bg-primary/10 text-primary flex items-center justify-center text-sm"><i
+                class="fa-solid fa-rocket"></i></span>
+            My Journey
+          </h2>
+
+          <!-- Timeline -->
+          <div class="relative pl-8 border-l-2 border-slate-200 space-y-10">
+
+            <!-- Item 1 -->
+            <div class="relative">
+              <div
+                class="absolute -left-[2.35rem] w-5 h-5 rounded-full bg-orange-500 ring-4 ring-white shadow-md mt-0.5 flex items-center justify-center">
+                <div class="w-2 h-2 rounded-full bg-white"></div>
+              </div>
+              <div class="bg-white/70 backdrop-blur border border-white/60 rounded-2xl p-5 shadow">
+                <span
+                  class="text-[10px] font-bold uppercase tracking-widest text-orange-500 mb-1 block">Foundation</span>
+                <h3 class="font-bold text-slate-900 mb-1">Embedded Systems &amp; IoT</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">My journey started with a curiosity for how things
+                  work — diving deep into <strong>Arduino</strong> and ESP microcontrollers to build smart,
+                  sensor-driven prototypes.</p>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="relative">
+              <div
+                class="absolute -left-[2.35rem] w-5 h-5 rounded-full bg-purple-500 ring-4 ring-white shadow-md mt-0.5 flex items-center justify-center">
+                <div class="w-2 h-2 rounded-full bg-white"></div>
+              </div>
+              <div class="bg-white/70 backdrop-blur border border-white/60 rounded-2xl p-5 shadow">
+                <span
+                  class="text-[10px] font-bold uppercase tracking-widest text-purple-500 mb-1 block">Evolution</span>
+                <h3 class="font-bold text-slate-900 mb-1">Cybersecurity &amp; Blockchain</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">Scaling projects revealed vulnerability. I mastered
+                  AES/SHA encryption, secure auth flows, and integrated on-chain ledgers for tamper-proof physical data.
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="relative">
+              <div
+                class="absolute -left-[2.35rem] w-5 h-5 rounded-full bg-emerald-500 ring-4 ring-white shadow-md mt-0.5 flex items-center justify-center">
+                <div class="w-2 h-2 rounded-full bg-white"></div>
+              </div>
+              <div class="bg-white/70 backdrop-blur border border-white/60 rounded-2xl p-5 shadow">
+                <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-500 mb-1 block">Now</span>
+                <h3 class="font-bold text-slate-900 mb-1">Full-Stack Engineer</h3>
+                <p class="text-sm text-slate-600 leading-relaxed">Today I engineer reliable, secure, and user-centric
+                  ecosystems — from the <strong>firmware</strong> layer up to the <strong>cloud</strong>. Building the
+                  intersection of hardware and software.</p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- 4. Technical Arsenal (Premium Cards) -->
+        <section class="mb-24">
+          <div class="flex items-center justify-between mb-10">
+            <h2 class="text-3xl font-black text-slate-900 flex items-center gap-3">
+              <span class="w-9 h-9 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-sm"><i
+                  class="fa-solid fa-bolt"></i></span>
+              Technical Arsenal
+            </h2>
+            <a href="Resume_page.html"
+              class="text-sm font-semibold text-primary hover:underline flex items-center gap-1">View Full Resume <i
+                class="fa-solid fa-arrow-right text-xs"></i></a>
+          </div>
+
+          <div id="techArsenalGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- IoT & Embedded -->
+            <div
+              class="group p-6 rounded-3xl bg-white/70 border border-white/60 backdrop-blur-md shadow hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+              <div class="flex items-center gap-3 mb-5">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-400 to-orange-600 text-white flex items-center justify-center shadow-lg shadow-orange-500/30">
+                  <i class="fa-solid fa-microchip text-xl"></i></div>
+                <div>
+                  <h3 class="text-base font-black text-slate-900">IoT &amp; Embedded</h3>
+                  <p class="text-xs text-slate-400 font-medium">Hardware engineering</p>
+                </div>
+              </div>
+              <p class="text-sm text-slate-600 mb-5 leading-relaxed">Bridging physical hardware with digital logic — C++
+                / Arduino ecosystem for smart sensor networks and real-time control.</p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-2.5 py-1 bg-orange-50 rounded-lg text-xs font-bold text-orange-600 border border-orange-100">Arduino</span>
+                <span
+                  class="px-2.5 py-1 bg-orange-50 rounded-lg text-xs font-bold text-orange-600 border border-orange-100">C++</span>
+                <span
+                  class="px-2.5 py-1 bg-orange-50 rounded-lg text-xs font-bold text-orange-600 border border-orange-100">ESP32</span>
+                <span
+                  class="px-2.5 py-1 bg-orange-50 rounded-lg text-xs font-bold text-orange-600 border border-orange-100">Sensors</span>
+              </div>
+            </div>
+
+            <!-- Security & Identity -->
+            <div
+              class="group p-6 rounded-3xl bg-white/70 border border-white/60 backdrop-blur-md shadow hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+              <div class="flex items-center gap-3 mb-5">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-700 text-white flex items-center justify-center shadow-lg shadow-purple-500/30">
+                  <i class="fa-solid fa-shield-halved text-xl"></i></div>
+                <div>
+                  <h3 class="text-base font-black text-slate-900">Security &amp; Identity</h3>
+                  <p class="text-xs text-slate-400 font-medium">Auth &amp; cryptography</p>
+                </div>
+              </div>
+              <p class="text-sm text-slate-600 mb-5 leading-relaxed">Biometric auth, TOTP, and AES/SHA encryption-backed
+                systems — security-first architecture from the ground up.</p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-2.5 py-1 bg-purple-50 rounded-lg text-xs font-bold text-purple-600 border border-purple-100">Biometrics</span>
+                <span
+                  class="px-2.5 py-1 bg-purple-50 rounded-lg text-xs font-bold text-purple-600 border border-purple-100">TOTP</span>
+                <span
+                  class="px-2.5 py-1 bg-purple-50 rounded-lg text-xs font-bold text-purple-600 border border-purple-100">AES/SHA</span>
+              </div>
+            </div>
+
+            <!-- Full-Stack & Data -->
+            <div
+              class="group p-6 rounded-3xl bg-white/70 border border-white/60 backdrop-blur-md shadow hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+              <div class="flex items-center gap-3 mb-5">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white flex items-center justify-center shadow-lg shadow-blue-500/30">
+                  <i class="fa-solid fa-code text-xl"></i></div>
+                <div>
+                  <h3 class="text-base font-black text-slate-900">Full-Stack &amp; Data</h3>
+                  <p class="text-xs text-slate-400 font-medium">Web &amp; backend</p>
+                </div>
+              </div>
+              <p class="text-sm text-slate-600 mb-5 leading-relaxed">Deploying full-stack applications across Python,
+                JavaScript, Flask and modern web frameworks with SQL/NoSQL persistence.</p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-2.5 py-1 bg-blue-50 rounded-lg text-xs font-bold text-blue-600 border border-blue-100">Python</span>
+                <span
+                  class="px-2.5 py-1 bg-blue-50 rounded-lg text-xs font-bold text-blue-600 border border-blue-100">Flask</span>
+                <span
+                  class="px-2.5 py-1 bg-blue-50 rounded-lg text-xs font-bold text-blue-600 border border-blue-100">JavaScript</span>
+                <span
+                  class="px-2.5 py-1 bg-blue-50 rounded-lg text-xs font-bold text-blue-600 border border-blue-100">MySQL</span>
+              </div>
+            </div>
+
+            <!-- Blockchain -->
+            <div
+              class="group p-6 rounded-3xl bg-white/70 border border-white/60 backdrop-blur-md shadow hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+              <div class="flex items-center gap-3 mb-5">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 text-white flex items-center justify-center shadow-lg shadow-indigo-500/30">
+                  <i class="fa-solid fa-link text-xl"></i></div>
+                <div>
+                  <h3 class="text-base font-black text-slate-900">Blockchain</h3>
+                  <p class="text-xs text-slate-400 font-medium">Decentralized systems</p>
+                </div>
+              </div>
+              <p class="text-sm text-slate-600 mb-5 leading-relaxed">On-chain data integrity for IoT — tamper-proof
+                audit trails linking physical sensor data to immutable ledger records.</p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-2.5 py-1 bg-indigo-50 rounded-lg text-xs font-bold text-indigo-600 border border-indigo-100">Solidity</span>
+                <span
+                  class="px-2.5 py-1 bg-indigo-50 rounded-lg text-xs font-bold text-indigo-600 border border-indigo-100">Web3</span>
+                <span
+                  class="px-2.5 py-1 bg-indigo-50 rounded-lg text-xs font-bold text-indigo-600 border border-indigo-100">Smart
+                  Contracts</span>
+              </div>
+            </div>
+
+            <!-- AI & Data Science -->
+            <div
+              class="group p-6 rounded-3xl bg-white/70 border border-white/60 backdrop-blur-md shadow hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+              <div class="flex items-center gap-3 mb-5">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-400 to-pink-600 text-white flex items-center justify-center shadow-lg shadow-pink-500/30">
+                  <i class="fa-solid fa-brain text-xl"></i></div>
+                <div>
+                  <h3 class="text-base font-black text-slate-900">AI &amp; ML</h3>
+                  <p class="text-xs text-slate-400 font-medium">Intelligent systems</p>
+                </div>
+              </div>
+              <p class="text-sm text-slate-600 mb-5 leading-relaxed">Applying ML models for predictive sensor analytics,
+                anomaly detection, and intelligent automation in edge devices.</p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-2.5 py-1 bg-rose-50 rounded-lg text-xs font-bold text-rose-600 border border-rose-100">TensorFlow</span>
+                <span
+                  class="px-2.5 py-1 bg-rose-50 rounded-lg text-xs font-bold text-rose-600 border border-rose-100">NumPy</span>
+                <span
+                  class="px-2.5 py-1 bg-rose-50 rounded-lg text-xs font-bold text-rose-600 border border-rose-100">Pandas</span>
+              </div>
+            </div>
+
+            <!-- DSA & Problem Solving -->
+            <div
+              class="group p-6 rounded-3xl bg-white/70 border border-white/60 backdrop-blur-md shadow hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+              <div class="flex items-center gap-3 mb-5">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center shadow-lg shadow-emerald-500/30">
+                  <i class="fa-solid fa-sitemap text-xl"></i></div>
+                <div>
+                  <h3 class="text-base font-black text-slate-900">DSA &amp; Algorithms</h3>
+                  <p class="text-xs text-slate-400 font-medium">Competitive programming</p>
+                </div>
+              </div>
+              <p class="text-sm text-slate-600 mb-5 leading-relaxed">Strong foundations in data structures and algorithm
+                design — optimizing systems from embedded scheduling to backend queries.</p>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-2.5 py-1 bg-emerald-50 rounded-lg text-xs font-bold text-emerald-600 border border-emerald-100">Trees</span>
+                <span
+                  class="px-2.5 py-1 bg-emerald-50 rounded-lg text-xs font-bold text-emerald-600 border border-emerald-100">Graphs</span>
+                <span
+                  class="px-2.5 py-1 bg-emerald-50 rounded-lg text-xs font-bold text-emerald-600 border border-emerald-100">Dynamic
+                  Prog.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. Life Beyond Code (Bento Box Grid) -->
+        <section class="mb-24 scroll-reveal">
+          <div class="flex items-center justify-between mb-10">
+            <h2 class="text-3xl font-black text-slate-900 flex items-center gap-3">
+              <span class="w-9 h-9 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center text-sm"><i class="fa-solid fa-gamepad"></i></span>
+              Life Beyond Code
+            </h2>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-[auto] gap-4">
+            
+            <!-- Large Image/Vibe Card -> spans 2 cols, 2 rows -->
+            <div class="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-3xl bg-slate-900 premium-layered-shadow hover-float">
+              <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2670&auto=format&fit=crop" alt="Coding Vibe" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+              <div class="absolute bottom-6 left-6 pr-6">
+                <span class="px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-bold text-white mb-3 inline-block border border-white/30">The Setup</span>
+                <h3 class="text-2xl font-black text-white leading-tight">Where coffee <br>turns into code.</h3>
+              </div>
+            </div>
+
+            <!-- Now Playing Mini Player -->
+            <div class="md:col-span-2 bg-white/70 backdrop-blur-md border border-white/60 rounded-3xl p-5 premium-layered-shadow flex items-center gap-4 hover-float">
+              <div class="w-16 h-16 rounded-xl bg-slate-800 flex items-center justify-center relative overflow-hidden group">
+                <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center group-hover:scale-110 transition-transform duration-500"></div>
+                <div class="w-6 h-6 rounded-full bg-slate-900/80 backdrop-blur-sm border border-white/20 flex items-center justify-center z-10"><i class="fa-solid fa-play text-[8px] text-white ml-0.5"></i></div>
+              </div>
+              <div class="flex-grow">
+                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">On Heavy Rotation</p>
+                <h4 class="font-bold text-slate-900 truncate">Synthwave / Lo-Fi Beats</h4>
+                <p class="text-xs text-slate-500">Deep Work Focus</p>
+              </div>
+              <div class="flex gap-1 h-4 items-end">
+                <div class="w-1 bg-primary rounded-t-sm animate-pulse" style="height: 60%"></div>
+                <div class="w-1 bg-primary rounded-t-sm animate-pulse" style="height: 100%; animation-delay: 150ms"></div>
+                <div class="w-1 bg-primary rounded-t-sm animate-pulse" style="height: 40%; animation-delay: 300ms"></div>
+                <div class="w-1 bg-primary rounded-t-sm animate-pulse" style="height: 80%; animation-delay: 450ms"></div>
+              </div>
+            </div>
+
+            <!-- Location Widget -->
+            <div class="bg-indigo-50 border border-indigo-100 rounded-3xl p-5 premium-layered-shadow relative overflow-hidden flex flex-col justify-between hover-float">
+              <div class="absolute -right-4 -top-4 w-24 h-24 bg-indigo-500/10 rounded-full blur-xl"></div>
+              <div>
+                <i class="fa-solid fa-location-dot text-indigo-500 mb-2 text-xl"></i>
+                <h4 class="font-bold text-indigo-950">Hyderabad</h4>
+                <p class="text-xs text-indigo-700/70 font-medium">India</p>
+              </div>
+              <div class="mt-4 flex items-center gap-2">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+                </span>
+                <span class="text-xs font-bold text-indigo-600" id="liveTimeBento">IST Live</span>
+              </div>
+            </div>
+
+            <!-- Hobby Widget -->
+            <div class="bg-emerald-50 border border-emerald-100 rounded-3xl p-5 premium-layered-shadow relative overflow-hidden flex flex-col justify-between hover-float">
+               <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-emerald-500/10 rounded-full blur-xl"></div>
+               <div>
+                  <div class="w-8 h-8 rounded-full bg-emerald-200/50 text-emerald-600 flex items-center justify-center mb-3">
+                    <i class="fa-solid fa-camera text-sm"></i>
+                  </div>
+                  <h4 class="font-bold text-emerald-950">Photography</h4>
+               </div>
+               <p class="text-xs text-emerald-700/80 mt-2 font-medium leading-relaxed">Capturing street perspectives and architecture when offline.</p>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- 6. Guiding Principles (Accordion) -->
+        <section class="mb-32 scroll-reveal">
+           <div class="flex items-center justify-center mb-10 text-center flex-col">
+            <span class="px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-full text-[10px] font-bold tracking-widest uppercase mb-4 inline-block">Philosophy</span>
+            <h2 class="text-3xl font-black text-slate-900">Guiding Principles</h2>
+          </div>
+
+          <div class="max-w-3xl mx-auto space-y-3">
+            
+            <!-- Principle 1 -->
+            <details class="group bg-white/70 backdrop-blur-md border border-white/60 shadow-md rounded-2xl open:premium-layered-shadow transition-all duration-300">
+              <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-5 text-slate-800 group-open:text-primary transition-colors">
+                <span class="flex items-center gap-3"><span class="w-6 h-6 rounded bg-slate-100 text-slate-500 flex items-center justify-center text-xs group-open:bg-primary/10 group-open:text-primary transition-colors">01</span> Secure by Design</span>
+                <span class="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <div class="text-slate-600 text-sm p-5 pt-0 leading-relaxed opacity-0 group-open:opacity-100 group-open:animate-fadeIn">
+                Security shouldn't be an afterthought. In a world of interconnected IoT ecosystems and web platforms, I mandate end-to-end encryption, strict access controls, and zero-trust verification from the hardware edge to the cloud right from day one of architecture.
+              </div>
+            </details>
+
+            <!-- Principle 2 -->
+            <details class="group bg-white/70 backdrop-blur-md border border-white/60 shadow-md rounded-2xl open:premium-layered-shadow transition-all duration-300">
+              <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-5 text-slate-800 group-open:text-primary transition-colors">
+                <span class="flex items-center gap-3"><span class="w-6 h-6 rounded bg-slate-100 text-slate-500 flex items-center justify-center text-xs group-open:bg-primary/10 group-open:text-primary transition-colors">02</span> Master the Fundamentals</span>
+                <span class="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <div class="text-slate-600 text-sm p-5 pt-0 leading-relaxed opacity-0 group-open:opacity-100 group-open:animate-fadeIn">
+                Frameworks come and go, but data structures, algorithmic efficiency, and low-level memory handling are eternal. My background in competitive programming and C++ firmware ensures I never trade core performance for development speed.
+              </div>
+            </details>
+
+            <!-- Principle 3 -->
+            <details class="group bg-white/70 backdrop-blur-md border border-white/60 shadow-md rounded-2xl open:premium-layered-shadow transition-all duration-300">
+              <summary class="flex justify-between items-center font-bold cursor-pointer list-none p-5 text-slate-800 group-open:text-primary transition-colors">
+                <span class="flex items-center gap-3"><span class="w-6 h-6 rounded bg-slate-100 text-slate-500 flex items-center justify-center text-xs group-open:bg-primary/10 group-open:text-primary transition-colors">03</span> Build the Inevitable</span>
+                <span class="transition group-open:rotate-180">
+                  <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+                </span>
+              </summary>
+              <div class="text-slate-600 text-sm p-5 pt-0 leading-relaxed opacity-0 group-open:opacity-100 group-open:animate-fadeIn">
+                We are rapidly moving toward a decentralized, highly-automated future. I focus my time heavily on integrating hardware with reliable backends, experimenting with Machine Learning models, and utilizing Blockchain to stay at the absolute forefront of what's possible.
+              </div>
+            </details>
+
+          </div>
+        </section>
+
+        <!-- 7. Workspace & Toolkit -->
+        <section class="mb-24 scroll-reveal">
+           <div class="flex items-center justify-between mb-10">
+            <h2 class="text-3xl font-black text-slate-900 flex items-center gap-3">
+              <span class="w-9 h-9 rounded-xl bg-slate-200 text-slate-700 flex items-center justify-center text-sm"><i class="fa-solid fa-laptop-code"></i></span>
+              Workspace & Toolkit
+            </h2>
+          </div>
+          
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <!-- Gear Item -->
+            <div class="bg-white/70 backdrop-blur-md border border-white/60 p-5 rounded-2xl premium-layered-shadow hover:ring-2 hover:ring-primary/20 transition-all text-center group cursor-default">
+              <i class="fa-brands fa-apple text-2xl text-slate-300 group-hover:text-slate-800 transition-colors mb-2"></i>
+              <h4 class="font-bold text-sm text-slate-900">MacBook Pro</h4>
+              <p class="text-[10px] text-slate-500 font-medium">M-Series Silicon</p>
+            </div>
+            <!-- Gear Item -->
+            <div class="bg-white/70 backdrop-blur-md border border-white/60 p-5 rounded-2xl premium-layered-shadow hover:ring-2 hover:ring-blue-500/20 transition-all text-center group cursor-default">
+               <i class="fa-solid fa-code text-2xl text-slate-300 group-hover:text-blue-500 transition-colors mb-2"></i>
+               <h4 class="font-bold text-sm text-slate-900">VS Code</h4>
+               <p class="text-[10px] text-slate-500 font-medium">Primary Editor</p>
+            </div>
+            <!-- Gear Item -->
+            <div class="bg-white/70 backdrop-blur-md border border-white/60 p-5 rounded-2xl premium-layered-shadow hover:ring-2 hover:ring-orange-500/20 transition-all text-center group cursor-default">
+               <i class="fa-solid fa-terminal text-2xl text-slate-300 group-hover:text-orange-500 transition-colors mb-2"></i>
+               <h4 class="font-bold text-sm text-slate-900">iTerm2 + Zsh</h4>
+               <p class="text-[10px] text-slate-500 font-medium">Oh My Zsh Setup</p>
+            </div>
+            <!-- Gear Item -->
+            <div class="bg-white/70 backdrop-blur-md border border-white/60 p-5 rounded-2xl premium-layered-shadow hover:ring-2 hover:ring-emerald-500/20 transition-all text-center group cursor-default">
+               <i class="fa-brands fa-figma text-2xl text-slate-300 group-hover:text-emerald-500 transition-colors mb-2"></i>
+               <h4 class="font-bold text-sm text-slate-900">Figma</h4>
+               <p class="text-[10px] text-slate-500 font-medium">UI / UX Prototyping</p>
+            </div>
+            <!-- Add animation to detail summary drop downs -->
+            <style>
+              details > summary { list-style: none; }
+              details > summary::-webkit-details-marker { display: none; }
+              @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(-5px); }
+                to { opacity: 1; transform: translateY(0); }
+              }
+              .animate-fadeIn {
+                animation: fadeIn 0.4s ease-out forwards;
+              }
+            </style>
+          </div>
+        </section>
+
+        <!-- 8. Final CTA -->
+        <section class="text-center scroll-reveal">
+          <div class="inline-block p-1 rounded-full bg-gradient-to-r from-primary to-indigo-600 mb-8">
+            <div class="px-8 py-4 bg-white rounded-full">
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-indigo-600 font-bold text-lg">Looking
+                for a collaborator?</span>
+            </div>
+          </div>
+          <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Let's build the inevitable.</h2>
+          <div class="flex gap-4 justify-center">
+            <a href="CTA_page.html"
+              class="px-8 py-4 bg-slate-900 text-white rounded-full font-bold shadow-xl hover:-translate-y-1 transition-transform btn-shine">Contact
+              Me</a>
+          </div>
+        </section>
+
+      </div>
     </main>
     <section class="relative py-24 sm:py-32 overflow-hidden">
       <!-- Dynamic Background -->
@@ -1158,7 +1265,7 @@
                 </svg>
               </span>
             </a>
-            <a href="/Rishvin_Reddy_Resume.pdf"
+            <a href="/Yogamruth_Reddy_Resume.pdf"
               class="px-8 py-4 rounded-full border border-white/20 text-white font-medium hover:bg-white/10 transition-all backdrop-blur-sm">
               View Resume
             </a>
@@ -1372,11 +1479,11 @@
             <a href="index.html" class="flex items-center gap-3 group w-fit">
               <div
                 class="relative w-10 h-10 rounded-full overflow-hidden ring-2 ring-slate-800 group-hover:ring-primary/60 transition-all duration-300">
-                <img src="icon.png" alt="Rishvin Reddy"
+                <img src="https://avatars.githubusercontent.com/u/220704858?v=4" alt="Yogamruth Reddy"
                   class="w-full h-full object-cover">
               </div>
               <span
-                class="text-lg font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400 group-hover:from-primary group-hover:to-rose-400 transition-all duration-300">Rishvin</span>
+                class="text-lg font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400 group-hover:from-primary group-hover:to-rose-400 transition-all duration-300">Yogamruth</span>
             </a>
 
             <p class="text-slate-400 text-sm leading-relaxed">
@@ -1526,7 +1633,7 @@
             </h4>
             <div class="flex flex-col gap-2.5">
               <!-- GitHub -->
-              <a href="https://github.com/RishvinReddy" target="_blank" rel="noopener noreferrer"
+              <a href="https://github.com/YogamruthReddy" target="_blank" rel="noopener noreferrer"
                 class="social-link flex items-center gap-3 text-sm text-slate-400 hover:text-white group transition-all duration-200 rounded-xl p-2 -mx-2 hover:bg-slate-800/60">
                 <span class="w-9 h-9 rounded-xl bg-slate-800 border border-slate-700/50 flex items-center justify-center group-hover:bg-[#24292e] group-hover:border-[#24292e] group-hover:shadow-lg group-hover:shadow-[#24292e]/40 transition-all duration-300 flex-shrink-0">
                   <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -1541,7 +1648,7 @@
               </a>
 
               <!-- LinkedIn -->
-              <a href="https://www.linkedin.com/in/rishvinreddy" target="_blank" rel="noopener noreferrer"
+              <a href="https://www.linkedin.com/in/yogamruthreddy/" target="_blank" rel="noopener noreferrer"
                 class="social-link flex items-center gap-3 text-sm text-slate-400 hover:text-white group transition-all duration-200 rounded-xl p-2 -mx-2 hover:bg-slate-800/60">
                 <span class="w-9 h-9 rounded-xl bg-slate-800 border border-slate-700/50 flex items-center justify-center group-hover:bg-[#0077b5] group-hover:border-[#0077b5] group-hover:shadow-lg group-hover:shadow-[#0077b5]/40 transition-all duration-300 flex-shrink-0">
                   <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -1556,20 +1663,7 @@
               </a>
 
               <!-- Instagram -->
-              <a href="https://www.instagram.com/rishvin.reddy?igsh=Ym85aDhsOXpqeXdx&utm_source=qr" target="_blank"
-                rel="noopener noreferrer"
-                class="social-link flex items-center gap-3 text-sm text-slate-400 hover:text-white group transition-all duration-200 rounded-xl p-2 -mx-2 hover:bg-slate-800/60">
-                <span class="w-9 h-9 rounded-xl bg-slate-800 border border-slate-700/50 flex items-center justify-center group-hover:bg-gradient-to-br group-hover:from-[#f09433] group-hover:via-[#e6683c] group-hover:to-[#bc1888] group-hover:border-transparent group-hover:shadow-lg group-hover:shadow-pink-500/40 transition-all duration-300 flex-shrink-0">
-                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                      d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.055 1.8.24 2.222.403.55.21.945.462 1.36.876.415.415.667.81.877 1.36.163.422.348 1.053.403 2.223.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.055 1.17-.24 1.8-.403 2.222-.21.55-.462.945-.876 1.36-.415.415-.667.81-.877 1.36-.163.422-.348 1.053-.403 2.223C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.85c.055-1.17.24-1.8.403-2.222.21-.55.462-.945.876-1.36.415-.415.81-.667 1.36-.877.422-.163 1.053-.348 2.223-.403C8.416 2.175 8.796 2.163 12 2.163zm0 1.838c-3.162 0-3.534.012-4.78.069-1 .05-1.54.216-1.896.36-.48.19-.822.415-1.183.776-.36.36-.587.703-.776 1.183-.144.356-.31.896-.36 1.896-.057 1.246-.069 1.618-.069 4.78s.012 3.534.069 4.78c.05 1 .216 1.54.36 1.896.19.48.415.822.776 1.183.36.36.703.587 1.183.776.356.144.896.31 1.896.36 1.246.057 1.618.069 4.78.069s3.534-.012 4.78-.069c1-.05 1.54-.216 1.896-.36.48-.19.822-.415 1.183-.776.36-.36.587-.703.776-1.183.144-.356.31-.896.36-1.896.057-1.246.069-1.618.069-4.78s-.012-3.534-.069-4.78c-.05-1-.216-1.54-.36-1.896-.19-.48-.415-.822-.776-1.183-.36-.36-.703-.587-1.183-.776-.356-.144-.896-.31-1.896-.36-1.246-.057-1.618-.069-4.78-.069zM12 6.838a5.162 5.162 0 100 10.324 5.162 5.162 0 000-10.324zm0 8.324a3.162 3.162 0 110-6.324 3.162 3.162 0 010 6.324zm6.406-9.844a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z" />
-                  </svg>
-                </span>
-                <div>
-                  <p class="font-semibold text-sm leading-tight">Instagram</p>
-                  <p class="text-[11px] text-slate-500">Behind-the-scenes</p>
-                </div>
-              </a>
+              
 
               <!-- WhatsApp -->
               <a href="https://wa.me/message/J4P3MRT5HOAZH1" target="_blank" rel="noopener noreferrer"
@@ -1587,7 +1681,7 @@
               </a>
 
               <!-- Email -->
-              <a href="mailto:rishvinreddy@gmail.com"
+              <a href="mailto:guggilla.yogamruthreddy4422@gmail.com"
                 class="social-link flex items-center gap-3 text-sm text-slate-400 hover:text-white group transition-all duration-200 rounded-xl p-2 -mx-2 hover:bg-slate-800/60">
                 <span class="w-9 h-9 rounded-xl bg-slate-800 border border-slate-700/50 flex items-center justify-center group-hover:bg-primary group-hover:border-primary group-hover:shadow-lg group-hover:shadow-primary/40 transition-all duration-300 flex-shrink-0">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1598,7 +1692,7 @@
                 </span>
                 <div>
                   <p class="font-semibold text-sm leading-tight">Email</p>
-                  <p class="text-[11px] text-slate-500">rishvinreddy@gmail.com</p>
+                  <p class="text-[11px] text-slate-500">guggilla.yogamruthreddy4422@gmail.com</p>
                 </div>
               </a>
             </div>
@@ -1627,7 +1721,7 @@
 
         <!-- Bottom Bar -->
         <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
-          <p>© <span id="footerYear"></span> <span class="text-slate-400 font-medium">Rishvin Reddy</span>. All rights
+          <p>© <span id="footerYear"></span> <span class="text-slate-400 font-medium">Yogamruth Reddy</span>. All rights
             reserved.</p>
 
           <!-- Live clock -->
@@ -1739,9 +1833,10 @@
 
     <!-- GSAP Core & ScrollTrigger -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-    <script defer src="js/portfolio-engine.js"></script>
-    <script defer src="animations.js"></script>
+    <script src="js/portfolio-engine.js"></script>
+    <script src="animations.js"></script>
 
     <!-- GitHub Automation Script for About Page -->
     <script>
@@ -1757,7 +1852,7 @@
       }
 
       async function syncAboutPageWithGithub() {
-        const username = "RishvinReddy";
+        const username = "YogamruthReddy";
         let allRepos = [];
         let page = 1;
 
@@ -1864,7 +1959,7 @@
             };
             const palette = colorMap[type.color] || colorMap.slate;
 
-            const coverUrl = `https://opengraph.githubassets.com/1/RishvinReddy/${repo.name}`;
+            const coverUrl = `https://opengraph.githubassets.com/1/YogamruthReddy/${repo.name}`;
 
             card.innerHTML = `
               <div class="relative h-44 overflow-hidden bg-slate-100">
@@ -1964,7 +2059,7 @@
         const bannerImg = document.getElementById('modalBannerImg');
 
         // Use GitHub's own Open Graph social preview — always project-relevant, auto-generated by GitHub
-        bannerImg.src = `https://opengraph.githubassets.com/1/RishvinReddy/${repoName}`;
+        bannerImg.src = `https://opengraph.githubassets.com/1/YogamruthReddy/${repoName}`;
         bannerImg.style.opacity = '1';
 
         titleEl.textContent = repoName.replace(/-/g, ' ').replace(/_/g, ' ');
@@ -1988,7 +2083,7 @@
         // ── Fetch README ──
         let markdown = '';
         try {
-          const res = await fetch(`https://api.github.com/repos/RishvinReddy/${repoName}/readme`);
+          const res = await fetch(`https://api.github.com/repos/YogamruthReddy/${repoName}/readme`);
           if (!res.ok) throw new Error('no readme');
           const data = await res.json();
           markdown = decodeURIComponent(escape(atob(data.content)));
@@ -2021,8 +2116,8 @@
         // ── Fetch File Tree ──
         try {
           // Try HEAD first, fall back to main, then master
-          let treeRes = await fetch(`https://api.github.com/repos/RishvinReddy/${repoName}/git/trees/HEAD?recursive=1`);
-          if (!treeRes.ok) treeRes = await fetch(`https://api.github.com/repos/RishvinReddy/${repoName}/git/trees/main?recursive=1`);
+          let treeRes = await fetch(`https://api.github.com/repos/YogamruthReddy/${repoName}/git/trees/HEAD?recursive=1`);
+          if (!treeRes.ok) treeRes = await fetch(`https://api.github.com/repos/YogamruthReddy/${repoName}/git/trees/main?recursive=1`);
           if (!treeRes.ok) throw new Error('no tree');
           const treeData = await treeRes.json();
           const items = (treeData.tree || []).filter(i => !i.path.includes('node_modules') && !i.path.startsWith('.git'));
@@ -2379,7 +2474,7 @@
       (function () {
 
         /* ─────────────── CONFIG ─────────────── */
-        const GH_USER = "RishvinReddy";
+        const GH_USER = "YogamruthReddy";
         const API_URL = `https://api.github.com/users/${GH_USER}/repos?per_page=100&sort=updated`;
         const CACHE_KEY = "ghRepos_v3";
         const CACHE_TTL = 30 * 60 * 1000; // 30 min
@@ -2672,56 +2767,10 @@
     </script>
 
 
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+    <script src="js/background-network.js"></script>
 
     <script src="js/cursor-spotlight.js"></script>
-
-  <!-- ── Ambient Card Lighting JS ── -->
-  <script>
-  (function(){
-    // ── 1. Inject .ambient-spotlight span into every .card-premium / .card-lit
-    function injectSpotlights(){
-      document.querySelectorAll('.card-premium, .card-lit, .glass-card').forEach(function(card){
-        if(!card.querySelector('.ambient-spotlight')){
-          var s = document.createElement('span');
-          s.className = 'ambient-spotlight';
-          s.setAttribute('aria-hidden','true');
-          card.appendChild(s);
-        }
-      });
-    }
-
-    // ── 2. Track mouse inside each card → set CSS vars --card-x / --card-y
-    function bindCardMouse(){
-      document.querySelectorAll('.card-premium, .card-lit, .glass-card').forEach(function(card){
-        if(card.dataset.ambientBound) return;
-        card.dataset.ambientBound = '1';
-        card.addEventListener('mousemove', function(e){
-          var r = card.getBoundingClientRect();
-          var x = ((e.clientX - r.left) / r.width  * 100).toFixed(1) + '%';
-          var y = ((e.clientY - r.top)  / r.height * 100).toFixed(1) + '%';
-          card.style.setProperty('--card-x', x);
-          card.style.setProperty('--card-y', y);
-        });
-      });
-    }
-
-    // ── 3. On load + after dynamic content (MutationObserver)
-    function init(){
-      injectSpotlights();
-      bindCardMouse();
-    }
-    if(document.readyState === 'loading'){
-      document.addEventListener('DOMContentLoaded', init);
-    } else {
-      init();
-    }
-    // Watch for dynamically added cards
-    if(window.MutationObserver){
-      var obs = new MutationObserver(function(){ init(); });
-      obs.observe(document.body, { childList: true, subtree: true });
-    }
-  })();
-  </script>
 </body>
 
 </html>

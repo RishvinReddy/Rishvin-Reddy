@@ -1,5 +1,5 @@
 // ==============================================================================
-// Rishvin's IDE Extensions & Analytics
+// Yogamruth's IDE Extensions & Analytics
 // Encompasses particles, command palette, chart, graph, and AI explainer.
 // ==============================================================================
 
@@ -8,60 +8,17 @@ document.addEventListener('DOMContentLoaded', () => {
   // 1. Neural Network Particle Background
   if (typeof tsParticles !== 'undefined') {
     tsParticles.load("neural-bg", {
-      fpsLimit: 60,
       particles: {
-        number: { value: 80, density: { enable: true, value_area: 1000 } },
-        color: { 
-          value: ["#3b82f6", "#10b981", "#8b5cf6", "#f43f5e", "#0ea5e9"],
-          animation: { enable: true, speed: 10, sync: false }
-        },
-        links: { 
-          enable: true, 
-          distance: 160, 
-          color: "#94a3b8", 
-          opacity: 0.15, 
-          width: 1,
-          triangles: { enable: true, opacity: 0.02, color: "#3b82f6" }
-        },
-        move: { 
-          enable: true, 
-          speed: 1.5, 
-          direction: "none", 
-          random: true, 
-          straight: false, 
-          outModes: "out" 
-        },
-        size: { 
-          value: { min: 1, max: 4 },
-          animation: { enable: true, speed: 2, minimumValue: 1, sync: false }
-        },
-        opacity: { 
-          value: { min: 0.2, max: 0.5 },
-          animation: { enable: true, speed: 1, minimumValue: 0.1, sync: false }
-        },
-        // Premium layered depth mechanics
-        zIndex: {
-          value: { min: -100, max: 100 },
-          opacityRate: 0.3,  // deeper particles are slightly more transparent
-          sizeRate: 0.8,     // deeper particles are smaller
-          velocityRate: 0.5  // deeper particles move slower for parallax effect
-        }
+        number: { value: 60, density: { enable: true, value_area: 800 } },
+        color: { value: ["#3b82f6", "#22c55e", "#a855f7", "#f20d46"] },
+        links: { enable: true, distance: 150, color: "#808080", opacity: 0.2, width: 1 },
+        move: { enable: true, speed: 0.8, direction: "none", random: false, straight: false, outModes: "bounce" },
+        size: { value: { min: 1, max: 3 } },
+        opacity: { value: 0.4 }
       },
       interactivity: {
-        events: { 
-          onHover: { 
-            enable: true, 
-            mode: ["grab", "bubble"],
-            parallax: { enable: true, force: 30, smooth: 12 }
-          }, 
-          onClick: { enable: true, mode: "repulse" },
-          resize: true
-        },
-        modes: { 
-          grab: { distance: 200, links: { opacity: 0.6, color: "#3b82f6" } }, 
-          bubble: { distance: 160, size: 6, duration: 0.8, opacity: 0.8, color: "#3b82f6" },
-          repulse: { distance: 250, duration: 0.8, speed: 3 }
-        }
+        events: { onHover: { enable: true, mode: "grab" }, onClick: { enable: true, mode: "push" } },
+        modes: { grab: { distance: 160, links: { opacity: 0.6 } }, push: { particles_nb: 3 } }
       },
       retina_detect: true,
       background: { color: "transparent" }
@@ -367,7 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
 
     try {
-      const res = await fetch('https://api.github.com/users/RishvinReddy/events?per_page=15');
+      const res = await fetch('https://api.github.com/users/YogamruthReddy/events?per_page=15');
       if (!res.ok) throw new Error(`API error ${res.status}`);
       const events = await res.json();
 
@@ -378,7 +335,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       feedContainer.innerHTML = events.slice(0, 10).map(ev => {
         const info = getEventDisplay(ev);
-        const repo = ev.repo.name.replace('RishvinReddy/', '');
+        const repo = ev.repo.name.replace('YogamruthReddy/', '');
         const when = timeAgoFeed(new Date(ev.created_at));
         return `
           <div class="flex items-start gap-3 group hover:bg-slate-50 rounded-xl p-2 -mx-2 transition-colors">
@@ -423,27 +380,80 @@ document.addEventListener('DOMContentLoaded', () => {
     return `${Math.floor(diff/86400)}d ago`;
   }
 
-  // 5. AI Explainer UI Simulation -> Upgraded to REAL Vector Brain
+  // 5. AI Explainer UI Simulation
   window.simulateAIExplanation = function(repoName) {
     if (window.logToTerminal) {
-      window.logToTerminal(`Initiated Deep AI Context Analysis for ${repoName}...`, 'system');
+      window.logToTerminal(`Initiated AI Code Analysis for architecture of ${repoName}...`, 'info');
     }
     
-    // Open chat sidebar if it's hidden on mobile
+    // Check if the AI AI chat panel exists
     const chatPanel = document.getElementById('ai-chat-history');
-    if (chatPanel) {
-      const aiSidebar = chatPanel.closest('aside');
-      if (aiSidebar) {
-        aiSidebar.classList.remove('hidden');
-        aiSidebar.classList.add('flex'); // Ensure it's showing if they manually toggle it normally
-      }
+    if (!chatPanel) return;
+
+    // Open chat sidebar if it's hidden on mobile
+    const aiSidebar = chatPanel.closest('aside');
+    if (aiSidebar) {
+      aiSidebar.classList.remove('hidden');
+      aiSidebar.classList.add('flex'); // Ensure it's showing if they manually toggle it normally
     }
     
-    // Call the actual AI Chat RAG Brain
-    if (window.sendAIChatMessage) {
-        window.sendAIChatMessage(`Explain the architectural design and system logic behind ${repoName}.`);
-    } else {
-        if (window.logToTerminal) window.logToTerminal(`Error: AI Brain offline.`, 'error');
-    }
+    // Add User Message
+    const userMsg = document.createElement('div');
+    userMsg.className = "flex gap-3 items-start justify-end group animate-fadeIn";
+    userMsg.innerHTML = `
+      <div class="bg-primary text-white border border-primary/20 p-3 rounded-2xl rounded-tr-sm text-[13px] shadow-sm font-sans max-w-[85%]">
+        <p class="leading-relaxed">Please explain the architecture for <strong>${repoName}</strong>.</p>
+      </div>
+      <div class="w-7 h-7 rounded-lg bg-slate-200 text-slate-500 flex items-center justify-center shrink-0 shadow-sm">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+      </div>
+    `;
+    chatPanel.appendChild(userMsg);
+    chatPanel.scrollTop = chatPanel.scrollHeight;
+
+    // Add Thinking Bubble
+    const aiMsgId = 'ai-msg-' + Date.now();
+    const aiThinking = document.createElement('div');
+    aiThinking.id = aiMsgId;
+    aiThinking.className = "flex gap-3 items-start group mt-4";
+    aiThinking.innerHTML = `
+      <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-primary to-rose-500 text-white flex items-center justify-center shrink-0 shadow-md">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+      </div>
+      <div class="bg-white border border-slate-200 p-3 rounded-2xl rounded-tl-sm text-[13px] text-slate-700 shadow-sm font-sans flex items-center gap-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style="animation-delay: 150ms;"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" style="animation-delay: 300ms;"></span>
+      </div>
+    `;
+    chatPanel.appendChild(aiThinking);
+    chatPanel.scrollTop = chatPanel.scrollHeight;
+
+    // Simulate Network/Thinking delay
+    setTimeout(() => {
+      const el = document.getElementById(aiMsgId);
+      if (el) {
+        el.innerHTML = `
+          <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-primary to-rose-500 text-white flex items-center justify-center shrink-0 shadow-md">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+          </div>
+          <div class="bg-white border border-slate-200 p-3 rounded-2xl rounded-tl-sm text-[13px] text-slate-700 shadow-sm font-sans flex flex-col gap-2 w-[85%]">
+            <p>Based on static analysis of <strong>${repoName}</strong>, the repository is structured into distinct modular components. It uses automated CI/CD pipelines, separates the business logic from presentation, and implements strong typing schemas.</p>
+            <div class="p-2 mt-2 bg-slate-50 border border-slate-200 rounded-md">
+               <pre class="text-[10px] text-emerald-600 m-0 font-mono overflow-x-auto">
+// Analysis Complete
+status: 200 OK
+language: auto-detected
+architecture: modular-monolith
+confidence: 0.94</pre>
+            </div>
+          </div>
+        `;
+        chatPanel.scrollTop = chatPanel.scrollHeight;
+        if (window.logToTerminal) {
+          window.logToTerminal(`AI Analysis returned for ${repoName}.`, 'success');
+        }
+      }
+    }, 1800);
   };
 });

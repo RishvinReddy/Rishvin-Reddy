@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rishvinreddy.github.io/sitemap.xml
+Sitemap: https://YogamruthReddy.github.io/sitemap.xml

@@ -1,7 +1,7 @@
 /**
  * ============================================================
  *  AI PORTFOLIO ENGINE  v1.0
- *  Centralized data engine for RishvinReddy's developer portfolio.
+ *  Centralized data engine for YogamruthReddy's developer portfolio.
  *  All pages import this to get a single, cached source of truth.
  * ============================================================
  */
@@ -9,7 +9,7 @@
 const PORTFOLIO_ENGINE = (() => {
 
   // ─── Config ──────────────────────────────────────────────
-  const USERNAME = "RishvinReddy";
+  const USERNAME = "YogamruthReddy";
   const CACHE_KEY = "pe_cache_v3";
   const CACHE_TTL = 60 * 60 * 1000; // 1 hour in ms
 
@@ -513,99 +513,6 @@ Explain what this file does in simple terms.
     return { nodes, edges };
   }
 
-  // ─── AI BRAIN: VECTOR MEMORY SYSTEM ─────────────────────────
-  
-  /**
-   * buildAIContext()
-   * Asynchronously fetches Top READMEs and builds a Vector/Token DB for Semantic Search.
-   */
-  async function buildAIContext() {
-    let cached = localStorage.getItem("rag_vector_index");
-    if (cached) {
-      try {
-        window.APP.contextDB = JSON.parse(cached);
-        return;
-      } catch (e) {}
-    }
-    
-    if (window.logToTerminal) window.logToTerminal("Building local RAG vector index into Memory...", "system");
-    
-    const repos = await getRepos();
-    const topRepos = getTopRepos(repos, 8); // Deep analyze top 8
-    const db = [];
-
-    for (const repo of topRepos) {
-      // 1. Structural Node
-      const metadata = `${repo.name}: ${repo.description || 'No description.'}`;
-      db.push({
-        repo: repo.name,
-        text: metadata,
-        tokens: metadata.toLowerCase().split(/\W+/).filter(w => w.length > 2),
-        type: 'metadata'
-      });
-
-      // 2. Semantic README Node
-      const readme = await fetchReadme(repo.name);
-      if (readme) {
-        for (let i = 0; i < readme.length; i += 400) {
-          let chunk = readme.slice(i, i + 400);
-          db.push({
-            repo: repo.name,
-            text: chunk,
-            tokens: chunk.toLowerCase().split(/\W+/).filter(w => w.length > 2),
-            type: 'readme'
-          });
-        }
-      }
-    }
-
-    window.APP.contextDB = db;
-    try {
-      localStorage.setItem("rag_vector_index", JSON.stringify(db));
-    } catch(e) {}
-    
-    if (window.logToTerminal) window.logToTerminal(`AI Memory Index built with ${db.length} context chunks.`, "success");
-  }
-
-  // ─── RESUME GENERATOR ENGINE ────────────────────────────────
-  
-  /**
-   * generateResumeSystem(role)
-   * Builds an AI-tailored resume based on the repo insights and a specific target role.
-   */
-  function generateResumeSystem(role = "Software Engineer") {
-    if (!window.APP.repos || window.APP.repos.length === 0) return "Loading data...";
-    const insights = generateInsights(window.APP.repos);
-    
-    // Sort projects for the resume
-    const topProjects = rankProjects(window.APP.repos).slice(0, 4).map(p => p.repo);
-    
-    const resumeStr = `
-====== ${role.toUpperCase()} RESUME ======
-
-Candidate: Erolla Rishvin Reddy
-Domain: ${insights.focus}
-Top Stack: ${insights.topLang}
-
-=== CORE COMPETENCIES ===
-${Array.from(detectSkills(window.APP.repos)).slice(0, 8).join(' | ')}
-
-=== KEY ENGINEERING PROJECTS ===
-${topProjects.map(r => `
-- [${r.name}]
-  ${r.description || 'Developed custom system architectures and logic.'}
-  Stack: ${r.language || 'Multi-language'} | Engagement: ${r.stargazers_count} stars / ${r.forks_count} forks
-`).join('')}
-
-=== PATENT & INNOVATION ===
-- Co-inventor of Government of India registered design patent for an IoT Connectivity Device (Design No. 470097-001).
-
-========================================
-    `.trim();
-    
-    return resumeStr;
-  }
-
   // ─── Expose Public API ────────────────────────────────────
   return {
     USERNAME,
@@ -633,52 +540,10 @@ ${topProjects.map(r => `
     fetchContributionGraph,
     clearCache,
     buildCodebaseGraph,
-    buildAIContext,
-    generateResumeSystem,
     getEngineCache: () => CACHE,
   };
 
 })();
 
-// ─── GLOBAL SYSTEM INITIALIZATION (DEV-OS BRAIN) ──────────────────
-
 // Convenience alias for easy access in all pages
 window.ENGINE = PORTFOLIO_ENGINE;
-
-// Native State Manager (Replaces individual page fetches)
-window.APP = {
-  repos: [],
-  insights: null,
-  tools: null,
-  contextDB: [] // Vector search dataset
-};
-
-/**
- * Initializes the entire application state globally.
- */
-window.initApp = async function() {
-  if (window.APP.repos && window.APP.repos.length > 0) return; // Prevent double load
-  
-  if (window.logToTerminal) window.logToTerminal("Booting DevOS Global Intelligence...", "info");
-
-  const repos = await window.ENGINE.getRepos();
-  window.APP.repos = repos;
-  window.APP.insights = window.ENGINE.generateInsights(repos);
-  window.APP.tools = window.ENGINE.detectTools(repos);
-  
-  // Kickstart non-blocking Vector DB build
-  setTimeout(() => {
-    window.ENGINE.buildAIContext();
-  }, 300);
-
-  if (window.logToTerminal) window.logToTerminal("Global APP state fully loaded", "success");
-  
-  // Dispatch critical system event
-  document.dispatchEvent(new Event('DevOS_Ready'));
-};
-
-// Auto-boot if not in a lazy-load environment
-document.addEventListener('DOMContentLoaded', () => {
-    window.initApp();
-});
-
