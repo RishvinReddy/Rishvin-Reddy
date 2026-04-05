@@ -1,12 +1,21 @@
 <div align="center">
 
+<!-- SEO AUTHORITY LAYER -->
+<div align="center" style="margin-bottom: 20px;">
+  <h3>🏅 Patent Holder & Engineer</h3>
+  <p>
+    <b>Erolla Rishvin Reddy</b> is a Computer Science Engineering student and an IoT-focused developer specializing in cybersecurity and blockchain technologies.<br/>
+    Co-inventor of a <b>Government of India Registered Design Patent</b> for an <b>IoT Connectivity Device</b>.<br/>
+    <i>Design No: 470097-001</i>
+  </p>
+</div>
 <!-- ╔══════════════════════════════════════════════════════╗ -->
 
 <!--            QUANTUM ENTRY — CAPSULE RENDER              -->
 
 <!-- ╚══════════════════════════════════════════════════════╝ -->
 
-<img src="https://capsule-render.vercel.app/api?type=venom&color=0:050510,50:00F7FF,100:050510&height=200&section=header&text=YOGAMRUTH%20REDDY&fontSize=60&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Engineer%20%7C%20Builder%20%7C%20System%20Thinker&descSize=18&descAlignY=60&descColor=00F7FF" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=venom&color=0:050510,50:00F7FF,100:050510&height=200&section=header&text=RISHVIN%20REDDY&fontSize=60&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Engineer%20%7C%20Builder%20%7C%20System%20Thinker&descSize=18&descAlignY=60&descColor=00F7FF" width="100%"/>
 
 <!-- ════════════ ANIMATED TAGLINES ════════════ -->
 
@@ -16,16 +25,16 @@
 
 <!-- ════════════ BADGES ROW 1 — SOCIAL ════════════ -->
 
-[![Portfolio](https://img.shields.io/badge/⬡%20PORTFOLIO-YogamruthReddy.github.io-00F7FF?style=for-the-badge&labelColor=050510)](https://YogamruthReddy.github.io/)
-[![GitHub](https://img.shields.io/badge/⬡%20GITHUB-YogamruthReddy-ffffff?style=for-the-badge&logo=github&labelColor=050510)](https://github.com/YogamruthReddy)
-[![LinkedIn](https://img.shields.io/badge/⬡%20LINKEDIN-Connect-0A66C2?style=for-the-badge&logo=linkedin&labelColor=050510)](https://www.linkedin.com/in/yogamruthreddy/)
+[![Portfolio](https://img.shields.io/badge/⬡%20PORTFOLIO-rishvinreddy.github.io-00F7FF?style=for-the-badge&labelColor=050510)](https://rishvinreddy.github.io/)
+[![GitHub](https://img.shields.io/badge/⬡%20GITHUB-RishvinReddy-ffffff?style=for-the-badge&logo=github&labelColor=050510)](https://github.com/RishvinReddy)
+[![LinkedIn](https://img.shields.io/badge/⬡%20LINKEDIN-Connect-0A66C2?style=for-the-badge&logo=linkedin&labelColor=050510)](https://www.linkedin.com/in/rishvinreddy)
 
 <br/>
 
 <!-- ════════════ PROFILE VIEWS ════════════ -->
 
-[![Visitor Count](https://komarev.com/ghpvc/?username=YogamruthReddy&label=PROFILE+VIEWS&color=00F7FF&style=flat-square)](https://github.com/YogamruthReddy)
-![GitHub followers](https://img.shields.io/github/followers/YogamruthReddy?label=FOLLOWERS&style=flat-square&color=00F7FF&labelColor=050510)
+[![Visitor Count](https://komarev.com/ghpvc/?username=RishvinReddy&label=PROFILE+VIEWS&color=00F7FF&style=flat-square)](https://github.com/RishvinReddy)
+![GitHub followers](https://img.shields.io/github/followers/RishvinReddy?label=FOLLOWERS&style=flat-square&color=00F7FF&labelColor=050510)
 
 </div>
 
@@ -45,10 +54,10 @@
 
 ```yaml
 ┌─────────────────────────────────────────────────────────────┐
-│                     YOGAMRUTH.CORE  v2.0                      │
+│                     RISHVIN.CORE  v2.0                      │
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
-│  entity        : Yogamruth Reddy                              │
+│  entity        : Rishvin Reddy                              │
 │  role          : Engineer · Builder · System Thinker        │
 │  institute     : Woxsen University — CSE-BIC '28            │
 │  location      : India  🇮🇳                                  │
@@ -174,43 +183,43 @@
 
 <td width="33%" valign="top">
 
-### 🧠 Face Mesh Verification
+### 🤖 AI Portfolio OS
 
 > **Status:** `[ LIVE ]`
 
-Real-time facial mesh verification system leveraging deep learning and computer vision to verify user identities with high accuracy.
+An intelligent developer portfolio that thinks — with a built-in analytics core, AI-powered resume generation, and interactive skill visualization.
 
-**Stack:** `Python` `OpenCV` `MediaPipe`
+**Stack:** `HTML` `CSS` `JS` `Python`
 
-[![View Project](https://img.shields.io/badge/VIEW-PROJECT-00F7FF?style=flat-square&labelColor=050510)](https://github.com/YogamruthReddy/face-mesh-verification-system)
+[![View Project](https://img.shields.io/badge/VIEW-PROJECT-00F7FF?style=flat-square&labelColor=050510)](https://rishvinreddy.github.io/)
 
 </td>
 
 <td width="33%" valign="top">
 
-### 📊 Disk Scheduling Visualizer
+### ♻️ Smart Dustbin IoT
 
 > **Status:** `[ DEPLOYED ]`
 
-Interactive visualizer for operating system disk scheduling algorithms (FCFS, SSTF, SCAN, C-SCAN, LOOK, C-LOOK).
+Intelligent waste-level monitoring with real-time alerts. Reduces overflow by 70% through predictive fill-rate tracking and automated notifications.
 
-**Stack:** `JavaScript` `HTML/CSS`
+**Stack:** `Arduino` `IoT Sensors` `C++`
 
-[![View Project](https://img.shields.io/badge/VIEW-PROJECT-00F7FF?style=flat-square&labelColor=050510)](https://github.com/YogamruthReddy/disk-scheduling-algorithm-visualizer)
+[![View Project](https://img.shields.io/badge/VIEW-PROJECT-00F7FF?style=flat-square&labelColor=050510)](https://github.com/RishvinReddy)
 
 </td>
 
 <td width="33%" valign="top">
 
-### 🤖 PCA-ANN Face Rec.
+### 🌱 Smart Irrigation
 
 > **Status:** `[ ACTIVE ]`
 
-A robust Face Recognition System built using Principal Component Analysis (PCA) and Artificial Neural Networks (ANN).
+Automated precision agriculture — soil moisture sensing, weather API integration, and ML-assisted scheduling to reduce water usage.
 
-**Stack:** `Python` `Machine Learning`
+**Stack:** `Python` `Arduino` `Flask` `ML`
 
-[![View Project](https://img.shields.io/badge/VIEW-PROJECT-00F7FF?style=flat-square&labelColor=050510)](https://github.com/YogamruthReddy/PCA-ANN-Based-Face-Recognition-System)
+[![View Project](https://img.shields.io/badge/VIEW-PROJECT-00F7FF?style=flat-square&labelColor=050510)](https://github.com/RishvinReddy)
 
 </td>
 
@@ -229,13 +238,13 @@ A robust Face Recognition System built using Principal Component Analysis (PCA) 
 
 ### `⬡ GITHUB METRICS`
 
-<img src="https://github-readme-stats.vercel.app/api?username=YogamruthReddy&show_icons=true&theme=tokyonight&hide_border=true&bg_color=050510&title_color=00F7FF&icon_color=00F7FF&text_color=ffffff&border_radius=10" height="175"/>
+<img src="https://github-readme-stats.vercel.app/api?username=RishvinReddy&show_icons=true&theme=tokyonight&hide_border=true&bg_color=050510&title_color=00F7FF&icon_color=00F7FF&text_color=ffffff&border_radius=10" height="175"/>
 &nbsp;&nbsp;
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=YogamruthReddy&layout=compact&theme=tokyonight&hide_border=true&bg_color=050510&title_color=00F7FF&text_color=ffffff&border_radius=10" height="175"/>
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=RishvinReddy&layout=compact&theme=tokyonight&hide_border=true&bg_color=050510&title_color=00F7FF&text_color=ffffff&border_radius=10" height="175"/>
 
 <br/><br/>
 
-<img src="https://streak-stats.demolab.com?user=YogamruthReddy&theme=tokyonight&hide_border=true&background=050510&ring=00F7FF&fire=FFB800&currStreakLabel=00F7FF&border_radius=10" height="175"/>
+<img src="https://streak-stats.demolab.com?user=RishvinReddy&theme=tokyonight&hide_border=true&background=050510&ring=00F7FF&fire=FFB800&currStreakLabel=00F7FF&border_radius=10" height="175"/>
 
 </div>
 
@@ -251,7 +260,7 @@ A robust Face Recognition System built using Principal Component Analysis (PCA) 
 
 ### `⬡ ACHIEVEMENT GRID`
 
-<img src="https://github-profile-trophy.vercel.app/?username=YogamruthReddy&theme=tokyonight&no-frame=true&no-bg=true&margin-w=6&column=7"/>
+<img src="https://github-profile-trophy.vercel.app/?username=RishvinReddy&theme=tokyonight&no-frame=true&no-bg=true&margin-w=6&column=7"/>
 
 </div>
 
@@ -267,7 +276,7 @@ A robust Face Recognition System built using Principal Component Analysis (PCA) 
 
 ### `⬡ COMMIT TIMELINE`
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=YogamruthReddy&theme=tokyo-night&hide_border=true&bg_color=050510&color=00F7FF&line=00F7FF&point=FFB800&area=true&area_color=00F7FF" width="100%"/>
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=RishvinReddy&theme=tokyo-night&hide_border=true&bg_color=050510&color=00F7FF&line=00F7FF&point=FFB800&area=true&area_color=00F7FF" width="100%"/>
 
 </div>
 
@@ -281,12 +290,12 @@ A robust Face Recognition System built using Principal Component Analysis (PCA) 
 
 <div align="center">
 
-### `⬡ YOGAMRUTH.AI — PERSONALITY MODULE`
+### `⬡ RISHVIN.AI — PERSONALITY MODULE`
 
 </div>
 
 ```python
-class YogamruthReddy:
+class RishvinReddy:
 
     OPERATING_SINCE = 2024
     VERSION = "2.0-alpha"
@@ -304,8 +313,8 @@ class YogamruthReddy:
     def goal(self)    → str:  return "Build a product used by millions. 🌍"
     def current(self) → str:  return "Woxsen University CSE → Class of 2028"
 
-yogamruth = YogamruthReddy()
-print(yogamruth.goal())  # → "Build a product used by millions. 🌍"
+rishvin = RishvinReddy()
+print(rishvin.goal())  # → "Build a product used by millions. 🌍"
 ```
 
 -----
@@ -346,16 +355,16 @@ print(yogamruth.goal())  # → "Build a product used by millions. 🌍"
 
 ### `⬡ ESTABLISH CONNECTION`
 
-<a href="https://YogamruthReddy.github.io/">
-  <img src="https://img.shields.io/badge/🌐%20PORTFOLIO-YogamruthReddy.github.io-00F7FF?style=for-the-badge&labelColor=050510"/>
+<a href="https://rishvinreddy.github.io/">
+  <img src="https://img.shields.io/badge/🌐%20PORTFOLIO-rishvinreddy.github.io-00F7FF?style=for-the-badge&labelColor=050510"/>
 </a>
 &nbsp;
-<a href="https://github.com/YogamruthReddy">
-  <img src="https://img.shields.io/badge/💻%20GITHUB-YogamruthReddy-ffffff?style=for-the-badge&logo=github&labelColor=050510"/>
+<a href="https://github.com/RishvinReddy">
+  <img src="https://img.shields.io/badge/💻%20GITHUB-RishvinReddy-ffffff?style=for-the-badge&logo=github&labelColor=050510"/>
 </a>
 &nbsp;
-<a href="https://www.linkedin.com/in/yogamruthreddy/">
-  <img src="https://img.shields.io/badge/🔗%20LINKEDIN-Yogamruth%20Reddy-0A66C2?style=for-the-badge&logo=linkedin&labelColor=050510"/>
+<a href="https://www.linkedin.com/in/rishvinreddy">
+  <img src="https://img.shields.io/badge/🔗%20LINKEDIN-Rishvin%20Reddy-0A66C2?style=for-the-badge&logo=linkedin&labelColor=050510"/>
 </a>
 
 <br/><br/>

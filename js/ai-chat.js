@@ -37,84 +37,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // ─── RAG: KNOWNLEDGE GATHERING & CHUNKING ──────────────────────────────────
+  // ─── RAG: SEMANTIC VECTOR DB SEARCH (LOCAL MEMORY) ────────────────────────
   
-  function chunkText(text, size = 400) {
-    if (!text) return [];
-    const chunks = [];
-    for (let i = 0; i < text.length; i += size) {
-      chunks.push(text.slice(i, i + size));
-    }
-    return chunks;
-  }
-
-  async function getKnowledgeIndex() {
-    let indexData = localStorage.getItem("rag_vector_index");
-    if (indexData) {
-      return JSON.parse(indexData);
-    }
-    
-    // Build index if it doesn't exist
-    if (window.logToTerminal) window.logToTerminal("Building local RAG vector index...", "system");
-    
-    const repos = window.ENGINE ? await window.ENGINE.getRepos() : [];
-    const topRepos = window.ENGINE ? window.ENGINE.getTopRepos(repos, 5) : []; // Index top 5 for speed
-    
-    const newIndex = [];
-    
-    for (const repo of topRepos) {
-      // Index Repo Description
-      const descText = `${repo.name}: ${repo.description || 'No description.'}`;
-      newIndex.push({ repo: repo.name, text: descText, type: 'metadata' });
-      
-      // Index README chunks
-      const readme = window.ENGINE ? await window.ENGINE.fetchReadme(repo.name) : null;
-      if (readme) {
-        const chunks = chunkText(readme, 400);
-        chunks.forEach((chunk, idx) => {
-          newIndex.push({ repo: repo.name, text: chunk, type: 'readme', chunkId: idx });
-        });
-      }
-    }
-    
-    try {
-      localStorage.setItem("rag_vector_index", JSON.stringify(newIndex));
-      if (window.logToTerminal) window.logToTerminal(`Index built with ${newIndex.length} knowledge chunks.`, "success");
-    } catch (e) {
-      console.warn("Could not save vector index to localStorage (might be too large).", e);
-    }
-    
-    return newIndex;
-  }
-
-  // ─── RAG: SEMANTIC SEARCH (MOCKED PIPELINE) ────────────────────────────────
-  
-  // In production, this calls a real embedding endpoint
-  // async function embedText(text) {
-  //   const res = await fetch("/api/embed", { method: "POST", body: JSON.stringify({text}) });
-  //   const data = await res.json();
-  //   return data.vector;
-  // }
-  
-  // Simulated TF-IDF overlap to fake "Semantic Cosine Similarity" without an ML model
-  function calculateMockSimilarity(query, text) {
-    const words = query.toLowerCase().split(/\\W+/).filter(w => w.length > 2);
+  function calculateMockSimilarity(query, tokens) {
+    if (!tokens) return 0;
+    const qWords = query.toLowerCase().split(/\\W+/).filter(w => w.length > 2);
     let score = 0;
-    const target = (text || "").toLowerCase();
-    words.forEach(w => {
-      if (target.includes(w)) score += 1.0;
+    qWords.forEach(w => {
+      if (tokens.includes(w)) score += 1.0;
     });
     return score;
   }
 
   async function performVectorSearch(question) {
-    const knowledgeIndex = await getKnowledgeIndex();
+    // Ensure Vector DB is loaded globally
+    if (!window.APP || !window.APP.contextDB || window.APP.contextDB.length === 0) {
+       if (window.ENGINE && window.ENGINE.buildAIContext) {
+          await window.ENGINE.buildAIContext();
+       } else {
+          return [];
+       }
+    }
     
-    // In production, we'd compare cosine similarities of vectors here.
+    const knowledgeIndex = window.APP.contextDB || [];
+    
+    // Calculate TD-IDF style score (Mocked)
     const ranked = knowledgeIndex.map(chunk => {
        return {
           ...chunk,
-          score: calculateMockSimilarity(question, chunk.text)
+          score: calculateMockSimilarity(question, chunk.tokens)
        };
     }).sort((a, b) => b.score - a.score);
     
@@ -213,22 +164,65 @@ document.addEventListener('DOMContentLoaded', () => {
   async function generateMockLLMResponse(query, contextChunks) {
     const q = query.toLowerCase();
     
+    // Knowledge Base Context injection
+    const HIDDEN_CONTEXT = `Erolla Rishvin Reddy is an IoT Engineer, Cybersecurity Enthusiast, and Blockchain Developer. Co-inventor of an IoT Connectivity Device patent.`;
+    
     // In production:
-    // const prompt = \`Context: \${JSON.stringify(contextChunks)} \\n\\n Question: \${query}\`;
+    // const prompt = `Context: ${JSON.stringify(contextChunks)} \\n Knowledge Base: ${HIDDEN_CONTEXT} \\n\\n Question: ${query}`;
     // const response = await fetch('/api/chat', { method: 'POST', body: JSON.stringify({prompt}) });
     
-    if (contextChunks.length > 0) {
-      // Pull heavily from the injected vector context to prove RAG works
-      const bestChunk = contextChunks[0];
-      return `Based on your semantic search, this matches the repository **${bestChunk.repo}**.\n\nAccording to my injected file context:\n"${bestChunk.text.slice(0, 150)}..."\n\nI can verify that this project aligns closely with your question. In a full deployment, an LLM would synthesize this chunk into a conversational answer.`;
+    if(q.includes("patent")){
+      return `Rishvin is a co-inventor of a Government of India registered design patent for an IoT Connectivity Device (Design No. 470097-001).`;
+    }
+    
+    if (q.includes("who is") || q.includes("who are") || q.includes("identity") || q.includes("about rishvin")) {
+      return `Erolla Rishvin Reddy is an IoT Engineer, Cybersecurity Enthusiast, and Blockchain Developer based in Hyderabad, India. He is notably a co-inventor of a Government of India registered design patent for an IoT Connectivity Device and specializes in secure, scalable systems.`;
+    }
+
+    // ─── RESUME GENERATOR INTEGRATION ───
+    if (q.includes("resume") || q.includes("generate resume")) {
+       if (window.ENGINE && window.ENGINE.generateResumeSystem) {
+          const res = window.ENGINE.generateResumeSystem("Software Engineer");
+          return `I have dynamically generated a resume based on the current GitHub analysis:\n\n<div class="mt-3 p-3 bg-slate-100 rounded-md border border-slate-200 shadow-inner overflow-x-auto custom-scrollbar"><pre class="text-[10px] text-slate-700 font-mono m-0 whitespace-pre leading-relaxed">${escapeHtml(res)}</pre></div>\n\n*In a full deployment, this would trigger a PDF download.*`;
+       }
     }
 
     if (q.includes('tech stack') || q.includes('technologies')) {
-      const skills = window.ENGINE ? window.ENGINE.getEngineCache().skills : null;
-      let extra = skills ? ` Based on my repo analysis, I frequently use ${Array.from(skills).slice(0, 5).join(', ')}.` : "";
+      const skills = window.APP && window.APP.tools ? Array.from(window.APP.tools) : [];
+      let extra = skills.length ? ` My telemetry detects heavy usage of: **${skills.slice(0, 6).join(', ')}**.` : "";
       return "My core stack focuses on modern web and system development. I rely heavily on Python, JavaScript/Node.js, HTML/CSS, and various frameworks depending on the project." + extra;
+    }
+
+    if (contextChunks.length > 0) {
+      // ─── "REAL INTELLIGENCE" CODE EXPLAINER LOGIC ───
+      const bestChunk = contextChunks[0];
+      
+      let repoDetails = null;
+      if (window.APP && window.APP.repos) {
+         repoDetails = window.APP.repos.find(r => r.name === bestChunk.repo);
+      }
+      
+      let explainStr = `Based on semantic vector search, this matches **${bestChunk.repo}**.\n\n`;
+      
+      if (repoDetails) {
+         const classification = window.ENGINE ? window.ENGINE.classifyRepo(repoDetails) : "Software";
+         explainStr += `**Architecture Context:** Written primarily in ${repoDetails.language || "multiple languages"}, this project has ${repoDetails.stargazers_count} stars and is classified as a ${classification} system.\n\n`;
+      }
+      
+      // Provide a "deep read" summary of the chunk instead of just dumping text
+      if (bestChunk.type === 'readme') {
+         explainStr += `**AI Synthesis:** My read of the documentation implies this module handles structured capabilities. Here is the exact extracted context:\n\n> "${bestChunk.text.slice(0, 150)}..."\n\n`;
+      }
+      
+      explainStr += `*In a production DevOS, an LLM would stream a line-by-line explanation over this context tree.*`;
+      
+      return explainStr;
     }
 
     return "I couldn't find a direct match in the vector index for that query. If you ask about a specific project (like 'OS Simulation' or 'BioShield'), I will retrieve its README chunks and answer you contextually!";
   }
+
+  // Expose to window for external IDE triggers (e.g., Code Explainer button)
+  window.sendAIChatMessage = sendChatMessage;
+
 });

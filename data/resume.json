@@ -1,29 +1,67 @@
 {
-  "name": "Yogamruth Reddy",
-  "title": "IoT Engineer & Full Stack Developer",
+  "name": "Erolla Rishvin Reddy",
+  "title": "IoT Engineer | Full Stack Developer",
   "location": "Andhra Pradesh, India",
-  "email": "guggilla.yogamruthreddy4422@gmail.com",
-  "github": "YogamruthReddy",
-  "linkedin": "linkedin.com/in/yogamruthreddy",
+  "contact": {
+    "email": "rishvinreddy@gmail.com",
+    "github": "https://github.com/RishvinReddy",
+    "linkedin": "https://www.linkedin.com/in/rishvinreddy"
+  },
   "education": [
     {
-      "degree": "B.Tech",
+      "degree": "Bachelor of Technology (B.Tech)",
       "university": "Woxsen University",
-      "year": "2024 – Present",
-      "focus": "IoT, Data Structures, Computer Networks",
-      "coursework": ["DSA", "IoT", "Networks", "Web"]
+      "duration": "2024 – Present",
+      "specialization": "Internet of Things (IoT) & Computer Science",
+      "focusAreas": [
+        "Data Structures & Algorithms",
+        "Internet of Things (IoT)",
+        "Computer Networks",
+        "Web Technologies"
+      ],
+      "relevantCoursework": [
+        "Data Structures & Algorithms",
+        "IoT System Design",
+        "Computer Networks",
+        "Web Development"
+      ]
     }
   ],
   "skills": {
-    "languages": ["Python", "C", "C++", "HTML", "CSS", "JavaScript"],
-    "hardware": ["Arduino", "ESP32", "Sensors"],
-    "tools": ["Git", "GitHub", "Tinkercad"]
+    "programmingLanguages": [
+      "Python",
+      "C",
+      "C++",
+      "JavaScript",
+      "HTML",
+      "CSS"
+    ],
+    "hardwarePlatforms": [
+      "Arduino",
+      "ESP32",
+      "Embedded Sensors & Modules"
+    ],
+    "toolsAndTechnologies": [
+      "Git",
+      "GitHub",
+      "Tinkercad",
+      "REST APIs (Basics)",
+      "Version Control Systems"
+    ],
+    "coreConcepts": [
+      "Data Structures & Algorithms",
+      "Object-Oriented Programming",
+      "Networking Fundamentals",
+      "Embedded Systems",
+      "Problem Solving"
+    ]
   },
   "certifications": [
     {
       "title": "Git and GitHub",
-      "provider": "IBM Coursera"
+      "provider": "IBM (Coursera)",
+      "category": "Version Control & Collaboration"
     }
   ],
-  "profileSummary": "Motivated B.Tech student with strong interest in IoT, Data Structures, Software Development, and Smart Systems. Passionate about building practical technology solutions such as IoT-based automation systems and algorithm-driven applications. Seeking opportunities to apply programming, problem-solving, and system design skills in real-world projects."
+  "profileSummary": "Detail-oriented and driven B.Tech student specializing in IoT and Full Stack Development, with a strong foundation in Data Structures, Networking, and Embedded Systems. Skilled in building scalable applications and intelligent systems using modern development tools and hardware platforms. Passionate about leveraging technology to solve real-world problems through efficient system design, clean code practices, and innovative thinking. Actively seeking opportunities to contribute to impactful engineering solutions and continuously expand technical expertise."
 }

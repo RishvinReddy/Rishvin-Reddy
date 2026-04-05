@@ -1,5 +1,5 @@
 /**
- * UI Controller for Yogamruth's AI Portfolio Engine (v4.0)
+ * UI Controller for Rishvin's AI Portfolio Engine (v4.0)
  * Handles the Explorer tree, Editor Tabs, and Content Rendering.
  */
 
@@ -251,7 +251,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     editorContentArea.innerHTML = `
       <div class="fixed inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMTQ4LCAxNjMsIDE4NCLCAwLjE1KSIvPjwvc3ZnPg==')] opacity-60 pointer-events-none z-0"></div>
-      <div class="relative z-10 w-full h-[85vh] flex flex-col p-0">
+      <div class="relative z-10 w-full flex-1 flex flex-col min-h-0 p-0">
         <div class="px-6 pt-4 pb-2 border-b border-slate-200 bg-white/50 backdrop-blur-sm flex justify-between items-center shrink-0">
            <div class="flex items-center gap-2 text-sm text-slate-500 font-mono">
              <span class="text-primary">${repo.name}</span> / <span>${filePath}</span>
@@ -318,11 +318,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.querySelectorAll('.editor-tab').forEach(tab => {
       const repoName = tab.id.replace('tab-', '');
       if (repoName === activeTab) {
-        tab.classList.add('bg-slate-50', '', 'border-t-primary', 'text-slate-700', '');
-        tab.classList.remove('bg-white', '', 'border-t-transparent', 'text-slate-500');
+        tab.classList.add('bg-slate-50', 'border-t-primary', 'text-slate-700');
+        tab.classList.remove('bg-white', 'border-t-transparent', 'text-slate-500');
       } else {
-        tab.classList.remove('bg-slate-50', '', 'border-t-primary', 'text-slate-700', '');
-        tab.classList.add('bg-white', '', 'border-t-transparent', 'text-slate-500');
+        tab.classList.remove('bg-slate-50', 'border-t-primary', 'text-slate-700');
+        tab.classList.add('bg-white', 'border-t-transparent', 'text-slate-500');
       }
     });
 
@@ -330,11 +330,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     const welcomeTab = editorTabs.firstElementChild;
     if (welcomeTab && welcomeTab.id !== 'tab-' + activeTab) {
       if (activeTab === null) {
-        welcomeTab.classList.add('bg-slate-50', '', 'border-t-primary', 'text-slate-700', '');
-        welcomeTab.classList.remove('bg-white', '', 'border-t-transparent', 'text-slate-500');
+        welcomeTab.classList.add('bg-slate-50', 'border-t-primary', 'text-slate-700');
+        welcomeTab.classList.remove('bg-white', 'border-t-transparent', 'text-slate-500');
       } else {
-        welcomeTab.classList.remove('bg-slate-50', '', 'border-t-primary', 'text-slate-700', '');
-        welcomeTab.classList.add('bg-white', '', 'border-t-transparent', 'text-slate-500');
+        welcomeTab.classList.remove('bg-slate-50', 'border-t-primary', 'text-slate-700');
+        welcomeTab.classList.add('bg-white', 'border-t-transparent', 'text-slate-500');
       }
     }
   }
@@ -343,14 +343,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.querySelectorAll('.file-item').forEach(item => {
       if (item.dataset.repo === activeTab) {
         item.classList.add('bg-primary/10', 'text-primary');
-        item.classList.remove('text-slate-600', '');
+        item.classList.remove('text-slate-600');
         // If it's the map tab, re-add purple text explicitly
-        if(item.dataset.repo === 'Codebase Map') { item.classList.add('text-purple-600', '', 'bg-purple-500/10'); item.classList.remove('text-primary','bg-primary/10'); }
+        if(item.dataset.repo === 'Codebase Map') { 
+            item.classList.add('text-purple-600', 'bg-purple-500/10'); 
+            item.classList.remove('text-primary','bg-primary/10'); 
+        }
       } else {
-        item.classList.remove('bg-primary/10', 'text-primary', 'bg-purple-500/10', 'text-purple-600', '');
-        item.classList.add('text-slate-600', '');
+        item.classList.remove('bg-primary/10', 'text-primary', 'bg-purple-500/10', 'text-purple-600');
+        item.classList.add('text-slate-600');
         // If it's the map tab, restore original base
-        if(item.dataset.repo === 'Codebase Map') { item.classList.add('text-purple-700', ''); }
+        if(item.dataset.repo === 'Codebase Map') { 
+            item.classList.add('text-purple-700'); 
+        }
       }
     });
   }
@@ -407,7 +412,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     editorContentArea.innerHTML = `
       <div class="fixed inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMTQ4LCAxNjMsIDE4NCLCAwLjE1KSIvPjwvc3ZnPg==')] opacity-60 pointer-events-none z-0"></div>
-      <div class="relative z-10 w-full h-[85vh] flex flex-col p-4 lg:p-8">
+      <div class="relative z-10 w-full flex-1 flex flex-col min-h-0 p-4 lg:p-8">
         <div class="mb-4">
           <h2 class="text-2xl font-bold text-slate-900 flex items-center gap-2">
             <svg class="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>

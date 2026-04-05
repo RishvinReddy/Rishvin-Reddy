@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
         break;
 
       case 'whoami':
-        window.logToTerminal(`<span class="text-indigo-400 font-bold">Yogamruth Reddy</span> — AI/ML & IoT Engineer | Hyderabad, India`, "info");
+        window.logToTerminal(`<span class="text-indigo-400 font-bold">Rishvin Reddy</span> — AI/ML & IoT Engineer | Hyderabad, India`, "info");
         break;
 
       case 'repos':
@@ -263,9 +263,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   async function cmdActivity() {
-    window.logToTerminal(`Fetching live GitHub events for <span class="text-sky-400">YogamruthReddy</span>...`, "info");
+    window.logToTerminal(`Fetching live GitHub events for <span class="text-sky-400">RishvinReddy</span>...`, "info");
     try {
-      const res = await fetch('https://api.github.com/users/YogamruthReddy/events?per_page=10');
+      const res = await fetch('https://api.github.com/users/RishvinReddy/events?per_page=10');
       if (!res.ok) throw new Error(`API error ${res.status}`);
       const events = await res.json();
       if (!events.length) { window.logToTerminal("No recent activity found.", "warning"); return; }
@@ -273,7 +273,7 @@ document.addEventListener('DOMContentLoaded', () => {
       window.logToTerminal(`<span class="text-indigo-400 font-bold">Recent GitHub Activity:</span>`, "system");
       events.slice(0, 8).forEach(ev => {
         const type = formatEventType(ev.type);
-        const repo = ev.repo.name.replace('YogamruthReddy/', '');
+        const repo = ev.repo.name.replace('RishvinReddy/', '');
         const when = timeAgo(new Date(ev.created_at));
         window.logToTerminal(`  ${type.icon} <span class="text-slate-400 text-[11px]">${type.label}</span>  <span class="text-sky-400">${repo}</span>  <span class="text-slate-500 text-[10px]">(${when})</span>`, "info");
       });

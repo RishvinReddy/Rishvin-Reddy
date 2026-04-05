@@ -2,7 +2,7 @@
 <html lang="en" class="scroll-smooth">
 
 <head>
-  <link rel="icon" href="icon.jpeg" type="image/jpeg">
+  <link rel="icon" href="icon.png" type="image/png">
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -140,7 +140,7 @@
 
 <body
   class="bg-background-light text-slate-800 antialiased transition-colors duration-300">
-  <div id="network-background"></div>
+  
 
   <!-- Navbar -->
   <nav
@@ -151,7 +151,7 @@
           class="w-10 h-10 rounded-xl bg-gradient-to-tr from-primary to-indigo-500 flex items-center justify-center text-white font-bold text-xl premium-layered-shadow group-hover:shadow-primary/30 transition shadow-lg">
           RR
         </div>
-        <span class="font-bold text-xl tracking-tight text-slate-900">Yogamruth<span
+        <span class="font-bold text-xl tracking-tight text-slate-900">Rishvin<span
             class="text-primary">.</span></span>
       </a>
       <div class="flex items-center gap-4">
@@ -270,7 +270,7 @@
       document.getElementById("loading").textContent = "Error: No repository specified.";
     } else {
       // 1. Fetch Repository Metadata
-      fetch(`https://api.github.com/repos/YogamruthReddy/${repoName}`)
+      fetch(`https://api.github.com/repos/RishvinReddy/${repoName}`)
         .then(res => {
           if (!res.ok) throw new Error("Repository not found");
           return res.json();
@@ -325,7 +325,7 @@
         });
 
       // 2. Fetch README content
-      fetch(`https://api.github.com/repos/YogamruthReddy/${repoName}/readme`)
+      fetch(`https://api.github.com/repos/RishvinReddy/${repoName}/readme`)
         .then(res => {
           if (!res.ok) throw new Error("");
           return res.json();
@@ -348,8 +348,6 @@
     }
   </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-  <script src="js/background-network.js"></script>
 
   <script src="js/cursor-spotlight.js"></script>
 </body>

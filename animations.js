@@ -109,9 +109,8 @@
       }
     }
 
-    // Register GSAP ScrollTrigger
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-      gsap.registerPlugin(ScrollTrigger);
+    // Register GSAP ScrollTrigger (Keep for hover animations/cursor if gsap is present)
+    if (typeof gsap !== 'undefined') {
       gsap.config({ nullTargetWarn: false });
 
       /* --- GSAP ANIMATIONS --- */
@@ -158,99 +157,79 @@
            ease: "sine.inOut", stagger: { each: 1.5, from: "random" }
         });
       }
-
-      // Typography Reveals (h2, h3) - Exclude h1 for custom hero animation
-      gsap.utils.toArray('h2, h3:not(#modalTitle)').forEach(heading => {
-        gsap.fromTo(heading, 
-          { y: 50, opacity: 0, filter: "blur(10px)" },
-          { 
-            y: 0, opacity: 1, filter: "blur(0px)",
-            duration: 1.2, 
-            ease: "circ.easeOut",
-            scrollTrigger: {
-              trigger: heading,
-              start: "top 85%",
-              toggleActions: "play none none reverse"
-            }
-          }
-        );
-      });
-
-      // Scroll Reveal elements
-      gsap.utils.toArray('.scroll-reveal').forEach(el => {
-        gsap.fromTo(el, 
-          { y: 50, opacity: 0, scale: 0.95 }, 
-          { 
-            y: 0, opacity: 1, scale: 1,
-            duration: 1,
-            ease: "back.out(1.2)",
-            scrollTrigger: {
-              trigger: el,
-              start: "top 85%",
-              toggleActions: "play none none reverse"
-            }
-          }
-        );
-      });
-
-      // Progress bar using ScrollTrigger
-      const progressBar = document.createElement('div');
-      progressBar.classList.add('scroll-progress');
-      progressBar.style.position = 'fixed';
-      progressBar.style.top = '0';
-      progressBar.style.left = '0';
-      progressBar.style.height = '4px';
-      progressBar.style.background = 'var(--primary, #f20d46)';
-      progressBar.style.zIndex = '99999';
-      progressBar.style.transformOrigin = '0% 50%';
-      document.body.appendChild(progressBar);
-
-      gsap.to(progressBar, {
-        scaleX: 1,
-        ease: "none",
-        scrollTrigger: {
-          trigger: document.body,
-          start: "top top",
-          end: "bottom bottom",
-          scrub: 0.1
-        }
-      });
-      
-
     } else {
       // Fallback if GSAP is blocked/missing
       document.body.classList.add('page-enter');
     }
 
-    /* --- BUTTERY SMOOTH CUSTOM CURSOR USING GSAP --- */
-    if (!REDUCED && matchMedia('(pointer: fine)').matches && typeof gsap !== 'undefined') {
-      const dot = document.createElement('div');
-      dot.classList.add('cursor-dot');
-      const outline = document.createElement('div');
-      outline.classList.add('cursor-outline');
-      document.body.appendChild(dot);
-      document.body.appendChild(outline);
+    // Native Intersection Observer for Scroll Reveals (High Performance)
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -50px 0px',
+      threshold: 0
+    };
 
-      // GSAP quickTo for ultra-perf
-      const xDot = gsap.quickTo(dot, "left", {duration: 0.05, ease: "power3"});
-      const yDot = gsap.quickTo(dot, "top", {duration: 0.05, ease: "power3"});
-      const xOutline = gsap.quickTo(outline, "left", {duration: 0.3, ease: "power3"});
-      const yOutline = gsap.quickTo(outline, "top", {duration: 0.3, ease: "power3"});
-
-      window.addEventListener('mousemove', (e) => {
-        xDot(e.clientX);
-        yDot(e.clientY);
-        xOutline(e.clientX);
-        yOutline(e.clientY);
+    const scrollObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target); 
+        }
       });
+    }, observerOptions);
 
-      // Cursor Expand on Hover
-      const interactables = document.querySelectorAll('a, button, input, textarea, select, .card, .magnetic-btn');
-      interactables.forEach(el => {
-        el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
-        el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+    // Helper to observe an element
+    const observeElement = (el) => {
+      if (!el.classList.contains('scroll-reveal-native')) {
+        el.classList.add('scroll-reveal-native');
+        scrollObserver.observe(el);
+      }
+    };
+
+    // 1. Initial observation for existing components
+    document.querySelectorAll('h2, h3:not(#modalTitle), .scroll-reveal').forEach(observeElement);
+
+    // 2. MutationObserver for dynamically injected elements (e.g., from portfolio-engine.js)
+    const domObserver = new MutationObserver((mutations) => {
+      mutations.forEach(mutation => {
+        mutation.addedNodes.forEach(node => {
+          if (node.nodeType === 1) { // ELEMENT_NODE
+            // Check the node itself
+            if (node.matches && node.matches('h2, h3:not(#modalTitle), .scroll-reveal')) {
+              observeElement(node);
+            }
+            // Check its children
+            if (node.querySelectorAll) {
+              node.querySelectorAll('h2, h3:not(#modalTitle), .scroll-reveal').forEach(observeElement);
+            }
+          }
+        });
       });
-    }
+    });
+
+    domObserver.observe(document.body, { childList: true, subtree: true });
+
+    // Native Scroll Progress Bar
+    const progressBar = document.createElement('div');
+    progressBar.classList.add('scroll-progress');
+    progressBar.style.position = 'fixed';
+    progressBar.style.top = '0';
+    progressBar.style.left = '0';
+    progressBar.style.height = '4px';
+    progressBar.style.background = 'var(--primary, #f20d46)';
+    progressBar.style.zIndex = '99999';
+    progressBar.style.width = '0%';
+    progressBar.style.transition = 'width 0.1s ease-out';
+    document.body.appendChild(progressBar);
+
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      progressBar.style.width = scrolled + '%';
+    }, { passive: true });
+
+    /* --- JS Custom Cursor has been removed for native UI --- */
 
     /* --- GSAP MAGNETIC BUTTONS & TEXT --- */
     if (typeof gsap !== 'undefined') {
@@ -381,6 +360,30 @@
           iterations += 1 / 3;
         }, 30);
       });
+    });
+
+    /* --- LATEST GITHUB REPO IN FOOTER --- */
+    const currentlyBuildingLabels = document.querySelectorAll('p');
+    currentlyBuildingLabels.forEach(p => {
+      if (p.textContent.trim() === 'Currently Building') {
+        const container = p.parentElement;
+        if (container && container.children.length >= 3) {
+          const titleP = container.children[1];
+          const descP = container.children[2];
+          
+          fetch('https://api.github.com/users/RishvinReddy/repos?sort=updated&per_page=1')
+            .then(res => res.json())
+            .then(data => {
+              if (data && data.length > 0) {
+                const repo = data[0];
+                const safeDesc = repo.language ? repo.language : (repo.description ? (repo.description.length > 35 ? repo.description.substring(0, 35) + '...' : repo.description) : 'GitHub Repository');
+                titleP.innerHTML = `<a href="${repo.html_url}" target="_blank" class="hover:text-primary transition-colors flex items-center gap-2" title="View on GitHub"><span class="w-2 h-2 rounded-full bg-primary animate-pulse inline-block"></span>${repo.name}</a>`;
+                descP.textContent = safeDesc;
+              }
+            })
+            .catch(err => console.error('Failed to fetch latest github repo', err));
+        }
+      }
     });
 
   });
